@@ -1,6 +1,8 @@
+package Models;
+
 import java.time.LocalDate;
 
-public class Passenger {
+public class User {
 	int id;
 	String firstName;
 	String lastName;

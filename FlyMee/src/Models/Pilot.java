@@ -1,5 +1,6 @@
+package Models;
 
-public class Pilot extends Passenger{
+public class Pilot extends User{
 	String experience;
 	String qualifications;
 	int flightHours;
