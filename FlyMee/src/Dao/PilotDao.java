@@ -1,11 +1,11 @@
-package Dao;
+package dao;
 
 import java.util.List;
 
-import Models.Flight;
-import Models.Pilot;
-import Models.Plane;
-import Models.User;
+import models.Aircraft;
+import models.Flight;
+import models.Pilot;
+import models.User;
 
 public interface PilotDao {
 	/**
@@ -49,5 +49,5 @@ public interface PilotDao {
 	 * @param pilotName
 	 * @return the planes of a pilot
 	 */
-	List<Plane> getPlanes(String pilotName);
+	List<Aircraft> getPlanes(String pilotName);
 }

@@ -1,6 +1,6 @@
-package Models;
+package models;
 
-public class Plane {
+public class Aircraft {
 	int id;
 	Pilot pilot;
 	String modelName;

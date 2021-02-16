@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Flight {
 	byte placesTaken;
 	Pilot pilot;
 	List<User> passenger;
-	Plane plane;
+	Aircraft plane;
 	float price;
 	String meetingPlace;
 	

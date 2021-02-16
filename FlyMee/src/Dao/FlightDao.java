@@ -1,9 +1,9 @@
-package Dao;
+package dao;
 
 import java.util.List;
 
-import Models.Flight;
-import Models.User;
+import models.Flight;
+import models.User;
 
 public interface FlightDao {
 	/**

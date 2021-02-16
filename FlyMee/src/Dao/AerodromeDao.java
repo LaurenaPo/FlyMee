@@ -1,16 +1,16 @@
-package Dao;
+package dao;
 
 import java.util.List;
 
-import Models.Aerodrome;
-import Models.Flight;
-import Models.User;
+import models.Aerodrome;
+import models.Flight;
+import models.User;
 
 public interface AerodromeDao {
 	/**
 	 * @return this list of aerodromes
 	 */
-	List<User> getAerodromes();
+	List<Aerodrome> getAerodromes();
 	
 	/**
 	 * @param aerodromeID
