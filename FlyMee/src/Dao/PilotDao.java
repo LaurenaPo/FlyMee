@@ -11,7 +11,7 @@ public interface PilotDao {
 	/**
 	 * @return this list of pilots
 	 */
-	List<User> getPilots();
+	List<Pilot> getPilots();
 	
 	/**
 	 * @param pilotID

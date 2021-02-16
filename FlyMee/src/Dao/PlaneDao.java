@@ -9,7 +9,7 @@ public interface PlaneDao {
 	/**
 	 * @return this list of planes
 	 */
-	List<User> getPlanes();
+	List<Plane> getPlanes();
 	
 	/**
 	 * @param planeID

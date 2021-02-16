@@ -9,7 +9,7 @@ public interface FlightDao {
 	/**
 	 * @return this list of flights
 	 */
-	List<User> getFlights();
+	List<Flight> getFlights();
 	
 	/**
 	 * @param flightID
