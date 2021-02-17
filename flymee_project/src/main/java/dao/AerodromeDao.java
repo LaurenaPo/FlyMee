@@ -22,13 +22,13 @@ public interface AerodromeDao {
 	 * 
 	 * @return a new aerodrome
 	 */
-	User postAerodrome();
+	User createAerodrome();
 	
 	/**
 	 * 
 	 * @return the update of the aerodrome
 	 */
-	User putAerodrome();
+	User updateAerodrome();
 	
 	/**
 	 * 

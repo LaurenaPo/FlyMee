@@ -21,13 +21,13 @@ public interface UserDao {
 	 * 
 	 * @return a new user
 	 */
-	User postUser();
+	User createUser();
 	
 	/**
 	 * 
 	 * @return the update of the user
 	 */
-	User putUser();
+	User updateUser();
 	
 	/**
 	 * 
@@ -47,6 +47,6 @@ public interface UserDao {
 	 * @param username
 	 * @return true if the flight is well reserved, false otherwise
 	 */
-	boolean postFlight(String username);
+	boolean reservedFlight(String username);
 
 }

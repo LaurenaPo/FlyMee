@@ -17,19 +17,19 @@ public interface PilotDao {
 	 * @param pilotID
 	 * @return a specific pilot
 	 */
-	Pilot getPilots(String pilotID);
+	Pilot getPilot(String pilotID);
 	
 	/**
 	 * 
 	 * @return a new pilot
 	 */
-	User postPilot();
+	User createPilot();
 	
 	/**
 	 * 
 	 * @return the update of the pilot
 	 */
-	User putPilot();
+	User updatePilot();
 	
 	/**
 	 * 
@@ -42,7 +42,7 @@ public interface PilotDao {
 	 * @param username
 	 * @return the flight added by a pilot
 	 */
-	List<Flight> getFlightsAdded(String pilotName);
+	List<Flight> getFlights(String pilotName);
 	
 	/**
 	 * 

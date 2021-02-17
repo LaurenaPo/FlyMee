@@ -21,13 +21,13 @@ public interface AircraftDao {
 	 * 
 	 * @return a new aircraft
 	 */
-	User postAircraft();
+	User createAircraft();
 	
 	/**
 	 * 
 	 * @return the update of the aircraft
 	 */
-	User putAircraft();
+	User updateAircraft();
 	
 	/**
 	 * 
