@@ -3,15 +3,14 @@ package models;
 import java.time.LocalDate;
 
 public class User {
-	int id;
-	String firstName;
-	String lastName;
-	String email;
-	LocalDate dateOfBirth;
-	String password;
-	String profilePicture;
-	String description;
-	String idCard;
-	int weight;
+	public int id;
+	public String firstName;
+	public String lastName;
+	public String email;
+	public LocalDate dateOfBirth;
+	public String password;
+	public String profilePicture;
+	public String description;
+	public int weight;
 	
 }

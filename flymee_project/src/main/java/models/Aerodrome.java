@@ -1,8 +1,8 @@
 package models;
 
 public class Aerodrome {
-	int id;
-	String country;
-	String town;
-	String codeName;
+	public int id;
+	public String country;
+	public String town;
+	public String name;
 }

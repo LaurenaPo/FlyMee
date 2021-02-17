@@ -1,9 +1,8 @@
 package models;
 
 public class Aircraft {
-	int id;
-	Pilot pilot;
-	String modelName;
-	byte placeNumber;
-	int hoursNumber;
+	public int id;
+	public Pilot pilot;
+	public String modelName;
+	public byte placeNumber;
 }

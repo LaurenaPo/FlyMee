@@ -1,8 +1,8 @@
 package models;
 
 public class Pilot extends User{
-	String experience;
-	String qualifications;
-	int flightHours;
-	int phone;
+	public String experience;
+	public String qualifications;
+	public int flightHours;
+	public String phone;
 }
