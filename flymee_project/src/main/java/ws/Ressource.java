@@ -1,4 +1,7 @@
-package com.example.jetty_jersey.ws;
+package ws;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -7,11 +10,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import Dao.List;
-import Models.User;
+import models.User;
 
 @Path("")
-public class Resource {
+public class Ressource {
 
 	
 
@@ -21,18 +23,18 @@ public class Resource {
 	public List<User> getUsers() {
 		ArrayList<User> list = new ArrayList<User>();
 		User test = new User();
-		lits.add(test);
+		list.add(test);
 		return list;
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/user/{id}")
-	public User getUser(int userID); {
+	public User getUser(int userID) {
 		User test = new User();
-		test.id = userID;
+		//test.id = userID;
 		return test;
-	}
+	} 
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
