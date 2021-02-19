@@ -1,4 +1,4 @@
-package models;
+package fr.abyssia.flymee.models;
 
 public class Aerodrome {
 	public int id;

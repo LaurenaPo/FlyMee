@@ -1,4 +1,4 @@
-package ws;
+package fr.abyssia.flymee.ws;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import models.User;
+import fr.abyssia.flymee.models.*;
 
 @Path("")
 public class Ressource {
