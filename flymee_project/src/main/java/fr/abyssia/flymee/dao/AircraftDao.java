@@ -1,9 +1,8 @@
-package dao;
+package fr.abyssia.flymee.dao;
 
 import java.util.List;
 
-import models.Aircraft;
-import models.User;
+import fr.abyssia.flymee.models.*;
 
 public interface AircraftDao {
 	/**

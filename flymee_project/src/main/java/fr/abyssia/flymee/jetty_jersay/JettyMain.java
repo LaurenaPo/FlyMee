@@ -1,4 +1,4 @@
-package jetty_jersay;
+package fr.abyssia.flymee.jetty_jersay;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -28,7 +28,7 @@ public class JettyMain {
 
 		// Configure Jersey
 		ResourceConfig rc = new ResourceConfig();
-		rc.packages(true, "com.example.jetty_jersey.ws");
+		rc.packages(true, "fr.abyssia.flymee.ws");
 		rc.register(JacksonFeature.class);
 		rc.register(LoggingFilter.class);
 

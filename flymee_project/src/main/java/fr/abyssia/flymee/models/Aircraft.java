@@ -1,4 +1,4 @@
-package models;
+package fr.abyssia.flymee.models;
 
 public class Aircraft {
 	public int id;
