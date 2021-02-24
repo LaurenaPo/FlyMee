@@ -13,4 +13,20 @@ public class User {
 	public String description;
 	public int weight;
 
+	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
+			String profilePicture, String description, int weight) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.dateOfBirth = dateOfBirth;
+		this.password = password;
+		this.profilePicture = profilePicture;
+		this.description = description;
+		this.weight = weight;
+	}
+
+	public User() {
+	}
+
 }
