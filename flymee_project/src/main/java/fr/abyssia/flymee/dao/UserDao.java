@@ -2,46 +2,46 @@ package fr.abyssia.flymee.dao;
 
 import java.util.List;
 
-import fr.abyssia.flymee.models.*;
-
+import fr.abyssia.flymee.models.Flight;
+import fr.abyssia.flymee.models.User;
 
 public interface UserDao {
 	/**
 	 * @return this list of users
 	 */
 	List<User> getUsers();
-	
+
 	/**
 	 * @param userID
 	 * @return a specific user
 	 */
 	User getUser(int userID);
-	
+
 	/**
 	 * 
 	 * @return a new user
 	 */
 	User createUser();
-	
+
 	/**
 	 * 
 	 * @return the update of the user
 	 */
 	User updateUser();
-	
+
 	/**
 	 * 
 	 * @return true if the user is successfully deleted, false otherwise
 	 */
 	boolean deleteUser();
-	
+
 	/**
 	 * 
 	 * @param username
 	 * @return the flight list of a user
 	 */
 	List<Flight> getFlights(String username);
-	
+
 	/**
 	 * 
 	 * @param username

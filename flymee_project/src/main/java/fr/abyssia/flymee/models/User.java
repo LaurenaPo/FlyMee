@@ -12,5 +12,5 @@ public class User {
 	public String profilePicture;
 	public String description;
 	public int weight;
-	
+
 }
