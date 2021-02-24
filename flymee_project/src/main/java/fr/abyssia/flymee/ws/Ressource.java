@@ -10,12 +10,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.models.*;
+import fr.abyssia.flymee.models.User;
 
 @Path("")
 public class Ressource {
-
-	
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

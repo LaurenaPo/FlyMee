@@ -16,5 +16,5 @@ public class Flight {
 	public Aircraft aircraft;
 	public float price;
 	public String meetingPlace;
-	
+
 }
