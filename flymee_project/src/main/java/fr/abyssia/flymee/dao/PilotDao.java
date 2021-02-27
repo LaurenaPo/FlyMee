@@ -5,7 +5,6 @@ import java.util.List;
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
-import fr.abyssia.flymee.models.User;
 
 public interface PilotDao {
 	/**
@@ -23,13 +22,13 @@ public interface PilotDao {
 	 * 
 	 * @return a new pilot
 	 */
-	User createPilot();
+	Pilot createPilot();
 
 	/**
 	 * 
 	 * @return the update of the pilot
 	 */
-	User updatePilot();
+	Pilot updatePilot();
 
 	/**
 	 * 
@@ -39,15 +38,15 @@ public interface PilotDao {
 
 	/**
 	 * 
-	 * @param username
-	 * @return the flight added by a pilot
+	 * @param pilotID
+	 * @return the flights added by a pilot
 	 */
-	List<Flight> getFlights(String pilotName);
+	List<Flight> getFlights(int pilotID);
 
 	/**
 	 * 
-	 * @param pilotName
-	 * @return the planes of a pilot
+	 * @param pilotID
+	 * @return the aircrafts of a pilot
 	 */
-	List<Aircraft> getPlanes(String pilotName);
+	List<Aircraft> getAircrafts(int pilotID);
 }

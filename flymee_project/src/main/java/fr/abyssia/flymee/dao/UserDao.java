@@ -25,9 +25,10 @@ public interface UserDao {
 
 	/**
 	 * 
+	 * @param userID
 	 * @return the update of the user
 	 */
-	User updateUser();
+	User updateUser(int userID);
 
 	/**
 	 * 
@@ -37,16 +38,29 @@ public interface UserDao {
 
 	/**
 	 * 
-	 * @param username
+	 * @param userID
 	 * @return the flight list of a user
 	 */
-	List<Flight> getFlights(String username);
+	List<Flight> getFlights(int userID);
 
 	/**
 	 * 
-	 * @param username
+	 * @param userID
+	 * @param flightID
 	 * @return true if the flight is well reserved, false otherwise
 	 */
-	boolean reservedFlight(String username);
+	boolean reservedFlight(int userID, int flightID);
+	
+	/**
+	 * 
+	 * @return true if the user is well logged, false otherwise
+	 */
+	boolean login();
+	
+	/**
+	 * 
+	 * @return true if the user is well unlogged, false otherwise
+	 */
+	boolean logout();
 
 }
