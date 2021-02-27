@@ -26,6 +26,15 @@ public class User {
 		this.weight = weight;
 	}
 
+	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.dateOfBirth = dateOfBirth;
+		this.password = password;
+	}
+
 	public User() {
 	}
 
