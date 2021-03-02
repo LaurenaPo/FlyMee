@@ -6,6 +6,14 @@ function getServerData(url, success){
     }).done(success);
 }
 
+function deleteServerData(url, success){
+    $.ajax({
+    	method: "DELETE",
+        dataType: "json",
+        url: url
+    }).done(success);
+}
+
 function callDone(result){
 	var templateExample = _.template($('#templateExample').html());
 
@@ -17,7 +25,11 @@ function callDone(result){
 }
 
 $(function(){
-	$("#button").click(function(){
-		getServerData("ws/example/aircraft",callDone);
+	$("#getButton").click(function(){
+		getServerData("ws/users", callDone);
 	});
+	$("#deleteButton").click(function(){
+		deleteServerData("ws/users/1", callDone);
+	});
+	
 });
