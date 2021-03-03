@@ -104,7 +104,7 @@ public class RessourceFlight {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}/users")
-	public List<User> getPassenger(@PathParam("id") int flightID) {
+	public List<User> getPassengers(@PathParam("id") int flightID) {
 		for (Flight flight : flightList) {
 			if (flight.id == flightID) {
 				return flight.passengerList;
