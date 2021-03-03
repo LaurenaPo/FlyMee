@@ -15,12 +15,12 @@ import javax.ws.rs.core.MediaType;
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Pilot;
 
-@Path("/Aircraft")
+@Path("/aircrafts")
 public class RessourceAircraft {
 	List<Aircraft> aircraftList;
 	
 	public RessourceAircraft() {
-		ArrayList<Aircraft> aircraftList = new ArrayList<Aircraft>();
+		this.aircraftList = new ArrayList<Aircraft>();
 		
 		Aircraft test1 = new Aircraft(1,new Pilot(), "B74f", 4);
 		Aircraft test2 = new Aircraft(2,new Pilot(), "B75f", 3);

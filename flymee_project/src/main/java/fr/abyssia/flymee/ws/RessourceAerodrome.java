@@ -19,7 +19,7 @@ import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 import fr.abyssia.flymee.models.Aerodrome;
 
-@Path("/Aerodrome")
+@Path("/aerodromes")
 public class RessourceAerodrome {
 	List<Aerodrome> aerodromeList;
 	List<Flight> flightListDeparture;
@@ -133,9 +133,4 @@ public class RessourceAerodrome {
 		}
 		return new ArrayList<Flight>();
 	}
-	
-	
-	
-	
-	
 }
