@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.abyssia.flymee.models.Aerodrome;
 import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.User;
 
 public interface AerodromeDao {
 	/**
@@ -22,13 +21,13 @@ public interface AerodromeDao {
 	 * 
 	 * @return a new aerodrome
 	 */
-	User createAerodrome();
+	Aerodrome createAerodrome();
 
 	/**
 	 * 
 	 * @return the update of the aerodrome
 	 */
-	User updateAerodrome();
+	Aerodrome updateAerodrome(int aerodromeID);
 
 	/**
 	 * 

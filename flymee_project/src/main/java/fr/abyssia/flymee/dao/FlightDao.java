@@ -21,13 +21,13 @@ public interface FlightDao {
 	 * 
 	 * @return a new flight
 	 */
-	User createFlight();
+	Flight createFlight();
 
 	/**
 	 * 
 	 * @return the update of the flight
 	 */
-	User updateFlight();
+	Flight updateFlight(int flightID);
 
 	/**
 	 * 
@@ -39,5 +39,5 @@ public interface FlightDao {
 	 * 
 	 * @return the passengers of a flight
 	 */
-	List<User> getPassengers();
+	List<User> getPassengers(int flightID);
 }
