@@ -3,7 +3,6 @@ package fr.abyssia.flymee.dao;
 import java.util.List;
 
 import fr.abyssia.flymee.models.Aircraft;
-import fr.abyssia.flymee.models.User;
 
 public interface AircraftDao {
 	/**
@@ -21,13 +20,13 @@ public interface AircraftDao {
 	 * 
 	 * @return a new aircraft
 	 */
-	User createAircraft();
+	Aircraft createAircraft();
 
 	/**
 	 * 
 	 * @return the update of the aircraft
 	 */
-	User updateAircraft(int aircraftID);
+	Aircraft updateAircraft(int aircraftID);
 
 	/**
 	 * 
