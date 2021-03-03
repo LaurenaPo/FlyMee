@@ -15,7 +15,7 @@ public interface AircraftDao {
 	 * @param aircraftID
 	 * @return a specific aircraft
 	 */
-	Aircraft getAircraft(String aircraftID);
+	Aircraft getAircraft(int aircraftID);
 
 	/**
 	 * 
@@ -27,7 +27,7 @@ public interface AircraftDao {
 	 * 
 	 * @return the update of the aircraft
 	 */
-	User updateAircraft();
+	User updateAircraft(int aircraftID);
 
 	/**
 	 * 
