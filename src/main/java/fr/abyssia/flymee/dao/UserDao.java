@@ -32,9 +32,10 @@ public interface UserDao {
 
 	/**
 	 * 
+	 * @param userID
 	 * @return true if the user is successfully deleted, false otherwise
 	 */
-	boolean deleteUser();
+	boolean deleteUser(int userID);
 
 	/**
 	 * 

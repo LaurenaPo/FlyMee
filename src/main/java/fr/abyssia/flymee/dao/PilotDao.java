@@ -16,7 +16,7 @@ public interface PilotDao {
 	 * @param pilotID
 	 * @return a specific pilot
 	 */
-	Pilot getPilot(String pilotID);
+	Pilot getPilot(int pilotID);
 
 	/**
 	 * 
@@ -26,15 +26,17 @@ public interface PilotDao {
 
 	/**
 	 * 
+	 * @param pilotID
 	 * @return the update of the pilot
 	 */
-	Pilot updatePilot();
+	Pilot updatePilot(int pilotID);
 
 	/**
 	 * 
+	 * @param pilotID
 	 * @return true if the pilot is successfully deleted, false otherwise
 	 */
-	boolean deletePilot();
+	boolean deletePilot(int pilotID);
 
 	/**
 	 * 

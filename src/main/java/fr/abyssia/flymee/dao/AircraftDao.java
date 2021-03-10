@@ -30,7 +30,8 @@ public interface AircraftDao {
 
 	/**
 	 * 
+	 * @param aircraftID
 	 * @return true if the aircraft is successfully deleted, false otherwise
 	 */
-	boolean deleteAircraft();
+	boolean deleteAircraft(int aircraftID);
 }

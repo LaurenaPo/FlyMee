@@ -31,19 +31,22 @@ public interface AerodromeDao {
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return true if the aerodrome is successfully deleted, false otherwise
 	 */
-	boolean deleteAerodrome();
+	boolean deleteAerodrome(int aerodromeID);
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return all the flights of a specific departure
 	 */
-	List<Flight> getFlightsDeparture();
+	List<Flight> getFlightsDeparture(int aerodromeID);
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return all the flights of a specific arrival
 	 */
-	List<Flight> getFlightsArrival();
+	List<Flight> getFlightsArrival(int aerodromeID);
 }
