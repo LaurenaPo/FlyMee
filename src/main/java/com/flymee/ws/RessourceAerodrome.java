@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.AerodromeDao;
-import fr.abyssia.flymee.models.Aerodrome;
-import fr.abyssia.flymee.models.Flight;
+import com.flymee.dao.AerodromeDao;
+import com.flymee.models.Aerodrome;
+import com.flymee.models.Flight;
 
 @Path("/aerodromes")
 public class RessourceAerodrome {

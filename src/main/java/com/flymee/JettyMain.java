@@ -1,4 +1,4 @@
-package fr.abyssia.flymee;
+package com.flymee;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;

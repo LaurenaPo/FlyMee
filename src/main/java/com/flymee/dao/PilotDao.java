@@ -1,10 +1,10 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import java.util.List;
 
-import fr.abyssia.flymee.models.Aircraft;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.Pilot;
+import com.flymee.models.Aircraft;
+import com.flymee.models.Flight;
+import com.flymee.models.Pilot;
 
 public interface PilotDao {
 	/**

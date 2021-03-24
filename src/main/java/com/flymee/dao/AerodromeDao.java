@@ -1,9 +1,9 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import java.util.List;
 
-import fr.abyssia.flymee.models.Aerodrome;
-import fr.abyssia.flymee.models.Flight;
+import com.flymee.models.Aerodrome;
+import com.flymee.models.Flight;
 
 public interface AerodromeDao {
 	/**

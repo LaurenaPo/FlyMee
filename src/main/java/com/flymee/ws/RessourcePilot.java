@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.PilotDao;
-import fr.abyssia.flymee.models.Aircraft;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.Pilot;
-import fr.abyssia.flymee.models.User;
+import com.flymee.dao.PilotDao;
+import com.flymee.models.Aircraft;
+import com.flymee.models.Flight;
+import com.flymee.models.Pilot;
+import com.flymee.models.User;
 
 @Path("/pilots")
 public class RessourcePilot {

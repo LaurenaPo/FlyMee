@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.UserDao;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.User;
+import com.flymee.dao.UserDao;
+import com.flymee.models.Flight;
+import com.flymee.models.User;
 
 @Path("/users")
 public class RessourceUser {
