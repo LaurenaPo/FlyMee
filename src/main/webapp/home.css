@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    background: url(images/plane_background.jpg);
+    background-size: cover;
+}
+
+/* Header*/
+header {
+    border-bottom: 4px solid #4A66AC;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+#flymee_logo {
+    font-family: 'Bodoni MT', Arial, serif;
+    font-weight: bold;
+    color: #4A66AC;
+    display: flex;
+    flex-direction: row;
+}
+#flymee_logo img {
+    height: 70px;
+}
+
+/* Navigation */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Trebuchet MS', Arial, serif;
+}
+nav li {
+    padding: 0 7px;
+}
+nav a {
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(98, 158, 213);
+    padding: 2px 8px;
+    border: outset;
+}
+nav a:hover {
+    border-color: rgb(98, 158, 213);
+    cursor: pointer;
+}
+
+/* Main */
+#title_and_input {
+    background-color: rgba(62, 75, 87, 0.7);
+    margin: 10% 20% 10% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 7px #000000;
+}
+
+#title_and_input h1 {
+    font-size: 2.5em;
+    font-family: 'Bodoni MT', Arial, serif;
+    font-weight: normal;
+    color: white;
+}
+
+.little_image {
+    height: 30px;
+    width: 30px;
+}
+
+.input_style {
+    display: flex;
+    border : 4px #4A66AC solid;
+    background-color: whitesmoke;
+}
+
+#date_bar {
+    margin-top: 10px;
+    margin-bottom: 26.8px;
+}
+
+input[type="search"] {
+    width: 200px;
+    height: 35px;
+}
