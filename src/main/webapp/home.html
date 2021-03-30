@@ -1,38 +1,39 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>FlyMee</title>
-		<style>
-			.nav-border {
-				border-bottom: 2px solid #bed5ea;
-			}
-			.logo {
-				font-family: 'Bodoni MT', serif;
-				font-weight: bold;
-				color: #4A66AC;
-			}
-			.nav-button {
-				display: flex;
-				justify-content: space-between;
-			}
-		</style>
+		<link rel="stylesheet" href="home.css" />
+		<title>FlyMee</title>
     </head>
 
 	<body>
-		<nav class="nav-border">
-			<img src="flymee_logo.png" alt="FlyMee Logo">
-			<h1 class="logo">FlyMee</h1>
-			<ul class="nav-button">
-				<li><a>Login</a></li>
-				<li><a>Register</a></li>
-				<li><a>Help</a></li>
-			</ul>
-		</nav>
-		<main>
-			<input type="text" placeholder="Departure..."/>
-			<input type="date"/>
-		</main>
+		<header>
+			<div id="flymee_logo">
+				<img src="images/flymee_logo.png" alt="FlyMee Logo">
+				<h1>FlyMee</h1>
+			</div>
+
+			<nav>
+				<ul>
+					<li><a href="#">LOGIN</a></li>
+					<li><a href="#">REGISTER</a></li>
+					<li><a href="#">HELP</a></li>
+				</ul>
+			</nav>
+		</header>
+        <main>
+            <div id="title_and_input">
+                <h1>Find a flight proposed by a pilot:</h1>
+                <div class="input_style" id="search_bar">
+                    <img class="little_image" src="images/little_plane.png" alt="">
+                    <input type="search" placeholder="Departure..."/>
+                </div>
+                <div class="input_style" id=date_bar>
+                    <img class="little_image" src="images/little_date.png" alt="">
+                    <input type="date"/>
+                </div>		
+            </div>
+        </main>
 
 	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
