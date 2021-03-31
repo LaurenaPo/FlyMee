@@ -27,7 +27,7 @@ public class FlightStubDao implements FlightDao {
 				new GregorianCalendar(2021, 4, 4, 19, 00), 4, 2, new Pilot(), userList, new Aircraft(), 81f, "Nice");
 		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
 				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, new Pilot(), userList, new Aircraft(), 87f,
-				"Châtelet");
+				"Chï¿½telet");
 		this.flightList.add(flight1);
 		this.flightList.add(flight2);
 
