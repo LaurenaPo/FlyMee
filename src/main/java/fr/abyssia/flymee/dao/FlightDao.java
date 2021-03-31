@@ -3,6 +3,7 @@ package fr.abyssia.flymee.dao;
 import java.util.List;
 
 import fr.abyssia.flymee.models.Flight;
+import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
 public interface FlightDao {
@@ -41,4 +42,6 @@ public interface FlightDao {
 	 * @return the passengers of a flight
 	 */
 	List<User> getPassengers(int flightID);
+	
+	Pilot getPilot(int FlightID);
 }
