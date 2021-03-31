@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Flight {
-	protected int id;
+	private int id;
 	protected String aerodromeDeparture;
 	protected String aerodromeArrival;
 	protected Calendar timeDeparture;
@@ -20,7 +20,7 @@ public class Flight {
 	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, Calendar timeDeparture,
 			Calendar timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
 			Aircraft aircraft, float price, String meetingPlace) {
-		this.id = id;
+		this.setId(id);
 		this.aerodromeDeparture = aerodromeDeparture;
 		this.aerodromeArrival = aerodromeArrival;
 		this.timeDeparture = timeDeparture;
@@ -32,6 +32,14 @@ public class Flight {
 		this.aircraft = aircraft;
 		this.price = price;
 		this.meetingPlace = meetingPlace;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

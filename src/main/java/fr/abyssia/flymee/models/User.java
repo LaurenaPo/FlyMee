@@ -3,7 +3,7 @@ package fr.abyssia.flymee.models;
 import java.time.LocalDate;
 
 public class User {
-	protected int id;
+	private int id;
 	protected String firstName;
 	protected String lastName;
 	protected String email;
@@ -15,7 +15,7 @@ public class User {
 
 	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
 			String profilePicture, String description, int weight) {
-		this.id = id;
+		this.setId(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -27,7 +27,7 @@ public class User {
 	}
 
 	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password) {
-		this.id = id;
+		this.setId(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -36,6 +36,14 @@ public class User {
 	}
 
 	public User() {
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

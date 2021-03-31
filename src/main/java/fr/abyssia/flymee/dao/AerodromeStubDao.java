@@ -37,7 +37,7 @@ public class AerodromeStubDao implements AerodromeDao {
 		this.flightListArrival = new ArrayList<Flight>();
 		Flight flight3 = new Flight(1, "ORY", "NCE", new GregorianCalendar(2021, 5, 4, 18, 30),
 				new GregorianCalendar(2021, 5, 4, 20, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				83f, "Châtelet");
+				83f, "Chï¿½telet");
 		Flight flight4 = new Flight(2, "TNS", "NCE", new GregorianCalendar(2021, 7, 10, 16, 30),
 				new GregorianCalendar(2021, 7, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
 				84f, "Tunis");
@@ -51,7 +51,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public Aerodrome getAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return aerodrome;
 			}
 		}
@@ -67,7 +67,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public Aerodrome updateAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				aerodromeList.remove(aerodrome);
 				Aerodrome aerodromeUpdated = new Aerodrome(aerodromeID, "France", "Bordeaux", "Jupiter");
 				aerodromeList.add(aerodromeUpdated);
@@ -79,7 +79,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public boolean deleteAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				aerodromeList.remove(aerodrome);
 				return true;
 			}
@@ -89,7 +89,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public List<Flight> getFlightsDeparture(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return this.flightListDeparture;
 			}
 		}
@@ -98,7 +98,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public List<Flight> getFlightsArrival(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return this.flightListArrival;
 			}
 		}

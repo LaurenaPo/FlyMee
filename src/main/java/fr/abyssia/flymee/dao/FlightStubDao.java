@@ -39,7 +39,7 @@ public class FlightStubDao implements FlightDao {
 
 	public Flight getFlight(int flightID) {
 		for (Flight flight : flightList) {
-			if (flight.id == flightID) {
+			if (flight.getId() == flightID) {
 				return flight;
 			}
 		}
@@ -56,7 +56,7 @@ public class FlightStubDao implements FlightDao {
 
 	public Flight updateFlight(int flightID) {
 		for (Flight flight : flightList) {
-			if (flight.id == flightID) {
+			if (flight.getId() == flightID) {
 				flightList.remove(flight);
 				Flight flightUpdated = new Flight(4, "TNS", "ORY", new GregorianCalendar(2021, 7, 4, 17, 30),
 						new GregorianCalendar(2021, 7, 4, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(),
@@ -70,7 +70,7 @@ public class FlightStubDao implements FlightDao {
 
 	public boolean deleteFlight(int flightID) {
 		for (Flight flight : flightList) {
-			if (flight.id == flightID) {
+			if (flight.getId() == flightID) {
 				flightList.remove(flight);
 				return true;
 			}
@@ -80,7 +80,7 @@ public class FlightStubDao implements FlightDao {
 
 	public List<User> getPassengers(int flightID) {
 		for (Flight flight : flightList) {
-			if (flight.id == flightID) {
+			if (flight.getId() == flightID) {
 				return flight.passengerList;
 			}
 		}

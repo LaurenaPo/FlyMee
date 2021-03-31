@@ -26,7 +26,7 @@ public class AircraftStubDao implements AircraftDao {
 
 	public Aircraft getAircraft(int aircraftID) {
 		for (Aircraft aircraft : aircraftList) {
-			if (aircraft.id == aircraftID) {
+			if (aircraft.getId() == aircraftID) {
 				return aircraft;
 			}
 		}
@@ -41,7 +41,7 @@ public class AircraftStubDao implements AircraftDao {
 
 	public Aircraft updateAircraft(int aircraftID) {
 		for (Aircraft aircraft : aircraftList) {
-			if (aircraft.id == aircraftID) {
+			if (aircraft.getId() == aircraftID) {
 				aircraftList.remove(aircraft);
 				Aircraft aircraftUpdated = new Aircraft(aircraftID, new Pilot(), "B78f", 3);
 				aircraftList.add(aircraftUpdated);
@@ -53,7 +53,7 @@ public class AircraftStubDao implements AircraftDao {
 
 	public boolean deleteAircraft(int aircraftID) {
 		for (Aircraft aircraft : aircraftList) {
-			if (aircraft.id == aircraftID) {
+			if (aircraft.getId() == aircraftID) {
 				aircraftList.remove(aircraft);
 				return true;
 			}

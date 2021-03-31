@@ -30,7 +30,7 @@ public class UserStubDao implements UserDao {
 				"Nice");
 		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
 				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 87f,
-				"Châtelet");
+				"Chï¿½telet");
 		this.flightList.add(flight1);
 		this.flightList.add(flight2);
 	}
@@ -41,7 +41,7 @@ public class UserStubDao implements UserDao {
 
 	public User getUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				return user;
 			}
 		}
@@ -49,7 +49,7 @@ public class UserStubDao implements UserDao {
 	}
 
 	public User createUser() {
-		User newUser = new User(4, "Oak", "Cacahouète", "oak.cacahouete@gmail.com", LocalDate.of(1999, 10, 17), "1234");
+		User newUser = new User(4, "Oak", "Cacahouï¿½te", "oak.cacahouete@gmail.com", LocalDate.of(1999, 10, 17), "1234");
 		userList.add(newUser);
 		;
 		return newUser;
@@ -57,7 +57,7 @@ public class UserStubDao implements UserDao {
 
 	public User updateUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				userList.remove(user);
 				User userUpdated = new User(userID, "Kao", "Otoko", "kao.otoko@gmail.com", LocalDate.of(1999, 10, 17),
 						"1234");
@@ -70,7 +70,7 @@ public class UserStubDao implements UserDao {
 
 	public boolean deleteUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				userList.remove(user);
 				return true;
 			}
@@ -80,7 +80,7 @@ public class UserStubDao implements UserDao {
 
 	public List<Flight> getFlights(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				return this.flightList;
 			}
 		}
@@ -89,9 +89,9 @@ public class UserStubDao implements UserDao {
 
 	public boolean reservedFlight(int userID, int flightID) {
 		for (User user : this.userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				for (Flight flight : this.flightList) {
-					if (flight.id == flightID) {
+					if (flight.getId() == flightID) {
 						flight.passengerList.add(user);
 						return true;
 					}

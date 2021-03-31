@@ -30,7 +30,7 @@ public class PilotStubDao implements PilotDao {
 				"Nice");
 		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
 				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, pilot1, new ArrayList<User>(), new Aircraft(), 87f,
-				"Châtelet");
+				"Chï¿½telet");
 		this.flightList.add(flight1);
 		this.flightList.add(flight2);
 	}
@@ -41,7 +41,7 @@ public class PilotStubDao implements PilotDao {
 
 	public Pilot getPilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				return pilot;
 			}
 		}
@@ -57,7 +57,7 @@ public class PilotStubDao implements PilotDao {
 
 	public Pilot updatePilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				pilotList.remove(pilot);
 				Pilot pilotUpdated = new Pilot(pilotID, "Julie", "Lou", "julie.lou@gmail.com",
 						LocalDate.of(1995, 5, 15), "1234", null, null, 57, null, null, 280, null);
@@ -70,7 +70,7 @@ public class PilotStubDao implements PilotDao {
 
 	public boolean deletePilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				pilotList.remove(pilot);
 				return true;
 			}
@@ -81,7 +81,7 @@ public class PilotStubDao implements PilotDao {
 	public List<Flight> getFlights(int pilotID) {
 		List<Flight> result = new ArrayList<Flight>();
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				for (Flight flight : flightList) {
 					if (flight.pilot == pilot) {
 						result.add(flight);
@@ -95,7 +95,7 @@ public class PilotStubDao implements PilotDao {
 	public List<Aircraft> getAircrafts(int pilotID) {
 		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				Aircraft aircraft1 = new Aircraft(1, pilot, "", 4);
 				Aircraft aircraft2 = new Aircraft(2, pilot, "", 5);
 				aircraftList.add(aircraft1);
