@@ -4,18 +4,25 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.jdo.PersistenceManagerFactory;
+
 import fr.abyssia.flymee.models.Aerodrome;
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
-public class AerodromeStubDao implements AerodromeDao {
+public class AerodromeDaoImpl implements AerodromeDao {
+	private PersistenceManagerFactory pmf;
 	List<Aerodrome> aerodromeList;
 	List<Flight> flightListDeparture;
 	List<Flight> flightListArrival;
-
-	public AerodromeStubDao() {
+	
+	public AerodromeDaoImpl(PersistenceManagerFactory pmf) {
+		this.pmf = pmf;
+	}
+	
+	public AerodromeDaoImpl() {
 		this.aerodromeList = new ArrayList<Aerodrome>();
 		Aerodrome aerodrome1 = new Aerodrome(1, "France", "Paris", "ORY");
 		Aerodrome aerodrome2 = new Aerodrome(2, "France", "Nice", "NCE");
