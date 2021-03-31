@@ -4,10 +4,10 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Flight {
-	public int id;
-	public String aerodromeDeparture;
-	public String aerodromeArrival;
-	public Calendar timeDeparture;
+	protected int id;
+	protected String aerodromeDeparture;
+	protected String aerodromeArrival;
+	protected Calendar timeDeparture;
 	public Calendar timeArrival;
 	public int placesNumber;
 	public int placesTaken;

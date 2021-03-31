@@ -3,10 +3,10 @@ package fr.abyssia.flymee.models;
 import java.time.LocalDate;
 
 public class Pilot extends User {
-	public String experience;
-	public String qualifications;
-	public int flightHours;
-	public String phone;
+	protected String experience;
+	protected String qualifications;
+	protected int flightHours;
+	protected String phone;
 
 	public Pilot(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
 			String profilePicture, String description, int weight, String experience, String qualifications, int flightHours, String phone) {

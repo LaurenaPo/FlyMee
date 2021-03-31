@@ -1,10 +1,10 @@
 package fr.abyssia.flymee.models;
 
 public class Aircraft {
-	public int id;
-	public Pilot pilot;
-	public String modelName;
-	public int placeNumber;
+	protected int id;
+	protected Pilot pilot;
+	protected String modelName;
+	protected int placeNumber;
 
 	public Aircraft(int id, Pilot pilot, String modelName, int i) {
 		this.id = id;

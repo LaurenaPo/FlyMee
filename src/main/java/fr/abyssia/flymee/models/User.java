@@ -3,15 +3,15 @@ package fr.abyssia.flymee.models;
 import java.time.LocalDate;
 
 public class User {
-	public int id;
-	public String firstName;
-	public String lastName;
-	public String email;
-	public LocalDate dateOfBirth;
-	public String password;
-	public String profilePicture;
-	public String description;
-	public int weight;
+	protected int id;
+	protected String firstName;
+	protected String lastName;
+	protected String email;
+	protected LocalDate dateOfBirth;
+	protected String password;
+	protected String profilePicture;
+	protected String description;
+	protected int weight;
 
 	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
 			String profilePicture, String description, int weight) {
