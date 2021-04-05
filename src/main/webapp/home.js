@@ -1,4 +1,20 @@
 
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );
+
+$( function() {
+  var availableTags = [
+    "AerodromeA",
+    "AerodromeB",
+    "AerodromeC",
+    "AerodromeD",
+  ];
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  });
+} );
+
 function getServerData(url, success){
     $.ajax({
         dataType: "json",
@@ -43,3 +59,4 @@ $(function(){
 	});
 	
 });
+
