@@ -17,6 +17,8 @@ public interface FlightDao {
 	 */
 	Flight getFlight(int flightID);
 
+	List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture);
+
 	/**
 	 * 
 	 * @return a new flight
