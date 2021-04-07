@@ -1,7 +1,7 @@
 package com.flymee.dao;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.flymee.models.Aerodrome;
@@ -25,22 +25,23 @@ public class AerodromeStubDao implements AerodromeDao {
 		this.aerodromeList.add(aerodrome3);
 
 		this.flightListDeparture = new ArrayList<Flight>();
-		Flight flight1 = new Flight(1, "NCE", "ORY", new GregorianCalendar(2021, 4, 4, 17, 30),
-				new GregorianCalendar(2021, 4, 4, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				81f, "Nice");
-		Flight flight2 = new Flight(2, "NCE", "TNS", new GregorianCalendar(2021, 4, 10, 17, 30),
-				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				87f, "Nice");
+		this.flightListArrival = new ArrayList<Flight>();
+		Flight flight1 = new Flight(1, "NCE", "ORY", LocalDateTime.of(2021, 4, 4, 17, 30),
+				LocalDateTime.of(2021, 4, 4, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 81f,
+				"Nice");
+		Flight flight2 = new Flight(2, "ORY", "NCE", LocalDateTime.of(2021, 4, 10, 17, 30),
+				LocalDateTime.of(2021, 4, 10, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
+				87f, "Châtelet");
 		this.flightListDeparture.add(flight1);
 		this.flightListDeparture.add(flight2);
 
 		this.flightListArrival = new ArrayList<Flight>();
-		Flight flight3 = new Flight(1, "ORY", "NCE", new GregorianCalendar(2021, 5, 4, 18, 30),
-				new GregorianCalendar(2021, 5, 4, 20, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				83f, "Châtelet");
-		Flight flight4 = new Flight(2, "TNS", "NCE", new GregorianCalendar(2021, 7, 10, 16, 30),
-				new GregorianCalendar(2021, 7, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				84f, "Tunis");
+		Flight flight3 = new Flight(1, "ORY", "NCE", LocalDateTime.of(2021, 5, 4, 18, 30),
+				LocalDateTime.of(2021, 5, 4, 20, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 83f,
+				"Châtelet");
+		Flight flight4 = new Flight(2, "TNS", "NCE", LocalDateTime.of(2021, 7, 10, 16, 30),
+				LocalDateTime.of(2021, 7, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 84f,
+				"Tunis");
 		this.flightListArrival.add(flight3);
 		this.flightListArrival.add(flight4);
 	}

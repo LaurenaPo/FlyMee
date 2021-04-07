@@ -1,8 +1,8 @@
 package com.flymee.dao;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.flymee.models.Aircraft;
@@ -25,11 +25,10 @@ public class UserStubDao implements UserDao {
 		this.userList.add(test3);
 
 		this.flightList = new ArrayList<Flight>();
-		Flight flight1 = new Flight(1, "NCE", "ORY", new GregorianCalendar(2021, 4, 4, 17, 30),
-				new GregorianCalendar(2021, 4, 4, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 81f,
-				"Nice");
-		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
-				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 87f,
+		Flight flight1 = new Flight(1, "NCE", "ORY", LocalDateTime.of(2021, 4, 4, 17, 30),
+				LocalDateTime.of(2021, 4, 4, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 81f, "Nice");
+		Flight flight2 = new Flight(2, "ORY", "NCE", LocalDateTime.of(2021, 4, 10, 17, 30, 00),
+				LocalDateTime.of(2021, 4, 10, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 87f,
 				"Châtelet");
 		this.flightList.add(flight1);
 		this.flightList.add(flight2);
