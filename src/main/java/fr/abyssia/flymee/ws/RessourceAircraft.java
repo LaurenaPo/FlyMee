@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -20,6 +20,7 @@ public class RessourceAircraft {
 
 	public RessourceAircraft(AircraftDao aircrafts) {
 		this.aircrafts = aircrafts;
+
 	}
 
 	@GET
@@ -54,5 +55,5 @@ public class RessourceAircraft {
 	public boolean deleteAircraft(@PathParam("id") int aircraftID) {
 		return this.aircrafts.deleteAircraft(aircraftID);
 	}
-	
+
 }

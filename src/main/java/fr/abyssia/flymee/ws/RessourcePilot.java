@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 

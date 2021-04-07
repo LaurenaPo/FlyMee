@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -13,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 
 import fr.abyssia.flymee.dao.UserDao;
 import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.User;
 
 @Path("/users")
 public class RessourceUser {
@@ -21,6 +20,7 @@ public class RessourceUser {
 
 	public RessourceUser(UserDao users) {
 		this.users = users;
+
 	}
 
 	@GET

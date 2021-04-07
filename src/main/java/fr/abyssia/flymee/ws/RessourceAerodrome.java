@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -45,6 +45,7 @@ public class RessourceAerodrome {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
+
 	public Aerodrome updateAerodrome(@PathParam("id") Aerodrome aero) {
 		return this.aerodromes.updateAerodrome(aero);
 	}
@@ -66,6 +67,7 @@ public class RessourceAerodrome {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}/arrival")
+
 	public List<Flight> getFlightsArrival(@PathParam("id") String name) {
 		return this.aerodromes.getFlightsArrival(name);
 	}

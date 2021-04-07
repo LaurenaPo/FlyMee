@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.ws;
+package com.flymee.ws;
 
 import java.util.List;
 
@@ -22,6 +22,8 @@ public class RessourceFlight {
 	public RessourceFlight(FlightDao flights) {
 		this.flights = flights;
 
+	public RessourceFlight() {
+		this.flights = new FlightStubDao();
 	}
 
 	@GET
@@ -39,12 +41,15 @@ public class RessourceFlight {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
+
 	public void addFlight(Flight flight) {
 		this.flights.addFlight(flight);
+
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+
 	@Path("/flight/")
 	public Flight updateFlight(@PathParam("flight") Flight flight) {
 		return this.flights.updateFlight(flight);
