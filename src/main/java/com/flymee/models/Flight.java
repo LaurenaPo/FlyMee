@@ -1,14 +1,14 @@
 package com.flymee.models;
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Flight {
 	public int id;
 	public String aerodromeDeparture;
 	public String aerodromeArrival;
-	public Calendar timeDeparture;
-	public Calendar timeArrival;
+	public LocalDateTime timeDeparture;
+	public LocalDateTime timeArrival;
 	public int placesNumber;
 	public int placesTaken;
 	public Pilot pilot;
@@ -17,8 +17,8 @@ public class Flight {
 	public float price;
 	public String meetingPlace;
 
-	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, Calendar timeDeparture,
-			Calendar timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
+	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, LocalDateTime timeDeparture,
+			LocalDateTime timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
 			Aircraft aircraft, float price, String meetingPlace) {
 		this.id = id;
 		this.aerodromeDeparture = aerodromeDeparture;
