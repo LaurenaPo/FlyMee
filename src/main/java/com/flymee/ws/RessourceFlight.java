@@ -11,17 +11,24 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.flymee.dao.FlightDao;
+import com.flymee.dao.FlightStubDao;
 import com.flymee.models.Flight;
 import com.flymee.models.User;
 
 @Path("/flights")
 public class RessourceFlight {
-	private FlightDao flights;
+	/*
+	 * private FlightDao flights;
+	 * 
+	 * public RessourceFlight(FlightDao flights) { this.flights = flights;
+	 * 
+	 * }
+	 */
 
-	public RessourceFlight(FlightDao flights) {
-		this.flights = flights;
+	private FlightStubDao flights;
 
+	public RessourceFlight() {
+		this.flights = new FlightStubDao();
 	}
 
 	@GET
@@ -62,6 +69,20 @@ public class RessourceFlight {
 	@Path("/{id}/users")
 	public List<User> getPassengers(@PathParam("id") int flightID) {
 		return this.flights.getPassengers(flightID);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{aerodrome}/{date}")
+	public List<Flight> ListOfFlight(@PathParam("aerodrome") String aerodrome, @PathParam("date") String date) {
+		return this.flights.getSomeFlights(aerodrome, date);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/search/{aerodrome}")
+	public List<Flight> ListOfFlightWithNoDate(@PathParam("aerodrome") String aerodrome) {
+		return this.flights.getSomeFlights(aerodrome, "1900-00-00");
 	}
 
 }

@@ -11,16 +11,22 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.flymee.dao.UserDao;
+import com.flymee.dao.UserStubDao;
 import com.flymee.models.Flight;
 import com.flymee.models.User;
 
 @Path("/users")
 public class RessourceUser {
-	private UserDao users;
+	/*
+	 * private UserDao users;
+	 * 
+	 * public RessourceUsers(UserDao users) { this.users = users; }
+	 */
 
-	public RessourceUser(UserDao users) {
-		this.users = users;
+	private UserStubDao users;
+
+	public RessourceUser() {
+		this.users = new UserStubDao();
 	}
 
 	@GET

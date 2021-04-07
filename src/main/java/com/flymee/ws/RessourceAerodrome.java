@@ -11,16 +11,23 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.flymee.dao.AerodromeDao;
+import com.flymee.dao.AerodromeStubDao;
 import com.flymee.models.Aerodrome;
 import com.flymee.models.Flight;
 
 @Path("/aerodromes")
 public class RessourceAerodrome {
-	private AerodromeDao aerodromes;
+	/*
+	 * private AerodromeDao aerodromes;
+	 * 
+	 * public RessourceAerodrome(AerodromeDao aerodromes) { this.aerodromes =
+	 * aerodromes; }
+	 */
 
-	public RessourceAerodrome(AerodromeDao aerodromes) {
-		this.aerodromes = aerodromes;
+	private AerodromeStubDao aerodromes;
+
+	public RessourceAerodrome() {
+		this.aerodromes = new AerodromeStubDao();
 	}
 
 	@GET

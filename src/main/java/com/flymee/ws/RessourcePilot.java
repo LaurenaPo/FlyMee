@@ -11,7 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.flymee.dao.PilotDao;
+import com.flymee.dao.PilotStubDao;
 import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
@@ -19,10 +19,16 @@ import com.flymee.models.User;
 
 @Path("/pilots")
 public class RessourcePilot {
-	private PilotDao pilots;
+	/*
+	 * private PilotDao pilots;
+	 * 
+	 * public RessourcePilot(PilotDao pilots) { this.pilots = pilots; }
+	 */
 
-	public RessourcePilot(PilotDao pilots) {
-		this.pilots = pilots;
+	private PilotStubDao pilots;
+
+	public RessourcePilot() {
+		this.pilots = new PilotStubDao();
 	}
 
 	@GET

@@ -11,15 +11,22 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.flymee.dao.AircraftDao;
+import com.flymee.dao.AircraftStubDao;
 import com.flymee.models.Aircraft;
 
 @Path("/aircrafts")
 public class RessourceAircraft {
-	private AircraftDao aircrafts;
+	/*
+	 * private AircraftDao aircrafts;
+	 * 
+	 * public RessourceAircraft(AircraftDao aircrafts) { this.aircrafts = aircrafts;
+	 * }
+	 */
 
-	public RessourceAircraft(AircraftDao aircrafts) {
-		this.aircrafts = aircrafts;
+	private AircraftStubDao aircrafts;
+
+	public RessourceAircraft() {
+		this.aircrafts = new AircraftStubDao();
 	}
 
 	@GET
@@ -54,5 +61,5 @@ public class RessourceAircraft {
 	public boolean deleteAircraft(@PathParam("id") int aircraftID) {
 		return this.aircrafts.deleteAircraft(aircraftID);
 	}
-	
+
 }
