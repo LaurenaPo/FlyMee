@@ -1,9 +1,8 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import java.util.List;
 
 import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.User;
 
 public interface UserDao {
 	/**
@@ -51,13 +50,13 @@ public interface UserDao {
 	 * @return true if the flight is well reserved, false otherwise
 	 */
 	boolean reservedFlight(int userID, int flightID);
-	
+
 	/**
 	 * 
 	 * @return true if the user is well logged, false otherwise
 	 */
 	boolean login();
-	
+
 	/**
 	 * 
 	 * @return true if the user is well unlogged, false otherwise

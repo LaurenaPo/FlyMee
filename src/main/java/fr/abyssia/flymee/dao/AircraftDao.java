@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import java.util.List;
 

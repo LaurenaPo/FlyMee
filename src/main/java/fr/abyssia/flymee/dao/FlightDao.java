@@ -1,11 +1,8 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
-import java.util.Calendar;
 import java.util.List;
 
-import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
 public interface FlightDao {
@@ -19,6 +16,8 @@ public interface FlightDao {
 	 * @return a specific flight
 	 */
 	Flight getFlight(int flightID);
+
+	List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture);
 
 	/**
 	 * 
