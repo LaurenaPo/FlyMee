@@ -1,5 +1,6 @@
-package fr.abyssia.flymee.models;
+package com.flymee.models;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.List;
 
@@ -7,11 +8,11 @@ import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 public class Flight {
-	private int id;
-	protected String aerodromeDeparture;
-	protected String aerodromeArrival;
-	protected Calendar timeDeparture;
-	public Calendar timeArrival;
+	public int id;
+	public String aerodromeDeparture;
+	public String aerodromeArrival;
+	public LocalDateTime timeDeparture;
+	public LocalDateTime timeArrival;
 	public int placesNumber;
 	public int placesTaken;
 	public Pilot pilot;
@@ -20,9 +21,8 @@ public class Flight {
 	public float price;
 	public String meetingPlace;
 
-
-	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, Calendar timeDeparture,
-			Calendar timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
+	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, LocalDateTime timeDeparture,
+			LocalDateTime timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
 			Aircraft aircraft, float price, String meetingPlace) {
 		this.setId(id);
 		this.aerodromeDeparture = aerodromeDeparture;
@@ -45,7 +45,7 @@ public class Flight {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getAerodromeDeparture() {
 		return aerodromeDeparture;
 	}
@@ -133,6 +133,5 @@ public class Flight {
 	public void setMeetingPlace(String meetingPlace) {
 		this.meetingPlace = meetingPlace;
 	}
-
 
 }
