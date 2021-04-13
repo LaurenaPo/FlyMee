@@ -108,4 +108,16 @@ public class UserStubDao implements UserDao {
 		return true;
 	}
 
+	public boolean getEmail(String userEmail) {
+		for (User user : this.userList) {
+			System.out.println(user.email);
+			if (user.email.equals(userEmail)) {
+				System.out.println("coucou");
+				return true;
+			}
+		}
+		System.out.println("cici");
+		return false;
+	}
+
 }

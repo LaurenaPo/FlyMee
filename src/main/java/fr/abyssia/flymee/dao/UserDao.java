@@ -17,6 +17,12 @@ public interface UserDao {
 	User getUser(int userID);
 
 	/**
+	 * @param userEmail
+	 * @return true is this email exist
+	 */
+	boolean getEmail(String userEmail);
+
+	/**
 	 * 
 	 * @return a new user
 	 */
