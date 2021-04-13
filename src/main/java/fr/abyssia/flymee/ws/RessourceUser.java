@@ -36,6 +36,13 @@ public class RessourceUser {
 		return this.users.getUser(userID);
 	}
 
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("login/{email}")
+	public boolean getUser(@PathParam("email") String userEmail) {
+		return this.users.getEmail(userEmail);
+	}
+
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	public User createUser() {
