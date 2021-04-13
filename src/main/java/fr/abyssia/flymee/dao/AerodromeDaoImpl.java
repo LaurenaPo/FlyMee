@@ -56,22 +56,44 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		this.flightListArrival.add(flight4);
 	}*/
 
-	public List<Aerodrome> getAerodromes() {
+	public List<Aerodrome> getAerodromes() {// retourne la liste complete des aerodromes : pas de filtre
 		List<Aerodrome> list = null;
 		List<Aerodrome> detached = new ArrayList<Aerodrome>();
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
-		
+		try {
+			tx.begin();
+			Query q = pm.newQuery(Aerodrome.class);
+			list = (List<Aerodrome>) q.execute();
+			detached = (List<Aerodrome>) pm.detachCopyAll(list);
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 		return detached;
 	}
 
 	public Aerodrome getAerodrome(int aerodromeID) {
-		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
-				return aerodrome;
+		Aerodrome ad = null;
+		Aerodrome detached = new Aerodrome();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		try {
+			tx.begin();
+			Query q = pm.newQuery(Aerodrome.class);
+			list = (List<Aerodrome>) q.execute();
+			detached = (List<Aerodrome>) pm.detachCopyAll(list);
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return null;
+		return detached;
 	}
 
 	public Aerodrome createAerodrome() {
