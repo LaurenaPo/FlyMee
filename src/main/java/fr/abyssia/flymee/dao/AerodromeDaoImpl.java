@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
+import javax.jdo.Transaction;
 
 import fr.abyssia.flymee.models.Aerodrome;
 import fr.abyssia.flymee.models.Aircraft;
@@ -14,6 +17,7 @@ import fr.abyssia.flymee.models.User;
 
 public class AerodromeDaoImpl implements AerodromeDao {
 	private PersistenceManagerFactory pmf;
+	
 	List<Aerodrome> aerodromeList;
 	List<Flight> flightListDeparture;
 	List<Flight> flightListArrival;
@@ -22,7 +26,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		this.pmf = pmf;
 	}
 	
-	public AerodromeDaoImpl() {
+	/*public AerodromeDaoImpl() {
 		this.aerodromeList = new ArrayList<Aerodrome>();
 		Aerodrome aerodrome1 = new Aerodrome(1, "France", "Paris", "ORY");
 		Aerodrome aerodrome2 = new Aerodrome(2, "France", "Nice", "NCE");
@@ -50,10 +54,15 @@ public class AerodromeDaoImpl implements AerodromeDao {
 				84f, "Tunis");
 		this.flightListArrival.add(flight3);
 		this.flightListArrival.add(flight4);
-	}
+	}*/
 
 	public List<Aerodrome> getAerodromes() {
-		return aerodromeList;
+		List<Aerodrome> list = null;
+		List<Aerodrome> detached = new ArrayList<Aerodrome>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		
+		return detached;
 	}
 
 	public Aerodrome getAerodrome(int aerodromeID) {

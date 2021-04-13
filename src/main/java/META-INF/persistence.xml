@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
-    <persistence-unit name="Example">
+    <persistence-unit name="FlyMee_DO">
     	<class>fr.abyssia.flymee.models.Aerodrome</class>
     	<class>fr.abyssia.flymee.models.Aircraft</class>
     	<class>fr.abyssia.flymee.models.Flight</class>
