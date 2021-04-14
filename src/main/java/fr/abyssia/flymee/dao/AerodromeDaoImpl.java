@@ -77,15 +77,19 @@ public class AerodromeDaoImpl implements AerodromeDao {
 	}
 
 	public Aerodrome getAerodrome(int aerodromeID) {
-		Aerodrome ad = null;
-		Aerodrome detached = new Aerodrome();
+		List<Aerodrome> ad = null;
+		List<Aerodrome> detached = new ArrayList<Aerodrome>();
+		Aerodrome resAd;
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction(); 
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Aerodrome.class);
-			list = (List<Aerodrome>) q.execute();
-			detached = (List<Aerodrome>) pm.detachCopyAll(list);
+			q.declareParameters("private int id");
+			q.setFilter("aerodromeID == id");
+			ad = (List<Aerodrome>) q.execute(aerodromeID);
+			detached = (List<Aerodrome>) pm.detachCopyAll(ad);
+			resAd = detached.get(0);
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -93,7 +97,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 			}
 			pm.close();
 		}
-		return detached;
+		return resAd;
 	}
 
 	public Aerodrome createAerodrome() {
