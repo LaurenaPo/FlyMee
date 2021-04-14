@@ -131,12 +131,9 @@ public class AerodromeDaoImpl implements AerodromeDao {
 	}
 
 	public boolean deleteAerodrome(int aerodromeID) {
-		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
-				aerodromeList.remove(aerodrome);
-				return true;
-			}
-		}
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Aerodrome ad = pm.getObjectById(Aerodrome.class, AerodromeID);
+		
 		return false;
 	}
 
