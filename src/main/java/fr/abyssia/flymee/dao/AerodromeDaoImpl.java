@@ -78,7 +78,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 
 	public Aerodrome getAerodrome(int aerodromeID) {
 		Aerodrome ad = null;
-		Aerodrome detached = new Aerodromeqsdfsdv();
+		Aerodrome detached = new Aerodrome();
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
 		try {
