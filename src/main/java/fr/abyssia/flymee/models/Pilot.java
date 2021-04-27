@@ -2,6 +2,9 @@ package fr.abyssia.flymee.models;
 
 import java.time.LocalDate;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Pilot extends User {
 	protected String experience;
 	protected String qualifications;

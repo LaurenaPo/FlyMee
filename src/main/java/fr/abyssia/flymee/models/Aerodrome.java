@@ -1,5 +1,8 @@
 package fr.abyssia.flymee.models;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Aerodrome {
 	private int id;
 	protected String country;

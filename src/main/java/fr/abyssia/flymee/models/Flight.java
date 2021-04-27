@@ -3,6 +3,9 @@ package fr.abyssia.flymee.models;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Flight {
 	private int id;
 	protected String aerodromeDeparture;

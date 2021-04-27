@@ -38,8 +38,8 @@ public class RessourceAerodrome {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Aerodrome createAerodrome() {
-		return this.aerodromes.createAerodrome();
+	public void addAerodrome(int id, String country, String town, String name) {
+		this.aerodromes.addAerodrome(id,country, town, name);
 	}
 
 	@POST
@@ -52,8 +52,8 @@ public class RessourceAerodrome {
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public boolean deleteAerodrome(@PathParam("id") int aerodromeID) {
-		return this.aerodromes.deleteAerodrome(aerodromeID);
+	public void deleteAerodrome(@PathParam("id") int aerodromeID) {
+		this.aerodromes.deleteAerodrome(aerodromeID);
 	}
 
 	@GET

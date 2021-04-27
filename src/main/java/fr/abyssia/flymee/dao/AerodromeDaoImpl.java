@@ -100,7 +100,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		return resAd;
 	}
 
-	public void createAerodrome(int id, String country, String town, String name) {
+	public void addAerodrome(int id, String country, String town, String name) {
 		Aerodrome newAerodrome = new Aerodrome(id, country, town, name);
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -130,11 +130,11 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		return null;
 	}
 
-	public boolean deleteAerodrome(int aerodromeID) {
+	public void deleteAerodrome(int aerodromeID) {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Aerodrome ad = pm.getObjectById(Aerodrome.class, AerodromeID);
+		Aerodrome ad = pm.getObjectById(Aerodrome.class, aerodromeID);
+		pm.deletePersistent(ad);
 		
-		return false;
 	}
 
 	public List<Flight> getFlightsDeparture(int aerodromeID) {

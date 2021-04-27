@@ -21,7 +21,7 @@ public interface AerodromeDao {
 	 * 
 	 * @return a new aerodrome
 	 */
-	Aerodrome createAerodrome();
+	void addAerodrome(int id, String country, String town, String name);
 
 	/**
 	 * 
@@ -34,7 +34,7 @@ public interface AerodromeDao {
 	 * @param aerodromeID
 	 * @return true if the aerodrome is successfully deleted, false otherwise
 	 */
-	boolean deleteAerodrome(int aerodromeID);
+	void deleteAerodrome(int aerodromeID);
 
 	/**
 	 * 

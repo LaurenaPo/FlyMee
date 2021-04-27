@@ -1,5 +1,8 @@
 package fr.abyssia.flymee.models;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Aircraft {
 	private int id;
 	protected Pilot pilot;

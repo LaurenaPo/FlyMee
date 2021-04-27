@@ -2,6 +2,9 @@ package fr.abyssia.flymee.models;
 
 import java.time.LocalDate;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class User {
 	private int id;
 	protected String firstName;
