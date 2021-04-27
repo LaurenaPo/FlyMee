@@ -132,8 +132,19 @@ public class AerodromeDaoImpl implements AerodromeDao {
 
 	public void deleteAerodrome(int aerodromeID) {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Aerodrome ad = pm.getObjectById(Aerodrome.class, aerodromeID);
-		pm.deletePersistent(ad);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Aerodrome ad = pm.getObjectById(Aerodrome.class, aerodromeID);
+			pm.deletePersistent(ad);
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 		
 	}
 
