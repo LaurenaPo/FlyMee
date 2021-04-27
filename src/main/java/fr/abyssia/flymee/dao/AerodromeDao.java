@@ -21,7 +21,7 @@ public interface AerodromeDao {
 	 * 
 	 * @return a new aerodrome
 	 */
-	void addAerodrome(int id, String country, String town, String name);
+	void addAerodrome(Aerodrome aero);
 
 	/**
 	 * 

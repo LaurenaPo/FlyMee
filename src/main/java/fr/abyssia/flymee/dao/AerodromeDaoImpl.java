@@ -100,14 +100,13 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		return resAd;
 	}
 
-	public void addAerodrome(int id, String country, String town, String name) {
-		Aerodrome newAerodrome = new Aerodrome(id, country, town, name);
+	public void addAerodrome(Aerodrome aerodrome) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
 
-			pm.makePersistent(newAerodrome);
+			pm.makePersistent(aerodrome);
 
 			tx.commit();
 		} finally {

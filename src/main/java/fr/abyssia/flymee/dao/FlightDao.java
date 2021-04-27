@@ -1,8 +1,11 @@
 package fr.abyssia.flymee.dao;
 
+import java.util.Calendar;
 import java.util.List;
 
+import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
+import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
 public interface FlightDao {
@@ -21,7 +24,7 @@ public interface FlightDao {
 	 * 
 	 * @return a new flight
 	 */
-	Flight createFlight();
+	void addFlight(Flight flight);
 
 	/**
 	 * 
