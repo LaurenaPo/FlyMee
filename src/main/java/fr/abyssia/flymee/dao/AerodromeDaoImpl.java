@@ -117,16 +117,34 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		}
 	}
 	
-	public Aerodrome updateAerodrome(int aerodromeID) {
-		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
-				aerodromeList.remove(aerodrome);
-				Aerodrome aerodromeUpdated = new Aerodrome(aerodromeID, "France", "Bordeaux", "Jupiter");
-				aerodromeList.add(aerodromeUpdated);
-				return aerodromeUpdated;
+	public Aerodrome updateAerodrome(Aerodrome aero) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Aerodrome modif;
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+
+			modif = pm.getObjectById(Aerodrome.class, aero.getId());
+			if (!(modif.getCountry().equals(aero.getCountry()))) {
+				modif.setCountry(aero.getCountry());
 			}
+			if (!(modif.getName().equals(aero.getName()))) {
+				modif.setName(aero.getName());
+			}
+			if (!(modif.getCountry().equals(aero.getCountry()))) {
+				modif.setCountry(aero.getCountry());
+			}
+			if (!(modif.getTown().equals(aero.getTown()))) {
+				modif.setTown(aero.getTown());
+			}
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return null;
+		return modif;
 	}
 
 	public void deleteAerodrome(int aerodromeID) {
