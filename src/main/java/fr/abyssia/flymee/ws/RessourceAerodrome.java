@@ -45,8 +45,8 @@ public class RessourceAerodrome {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public Aerodrome updateAerodrome(@PathParam("id") int aerodromeID) {
-		return this.aerodromes.updateAerodrome(aerodromeID);
+	public Aerodrome updateAerodrome(@PathParam("id") Aerodrome aero) {
+		return this.aerodromes.updateAerodrome(aero);
 	}
 
 	@DELETE

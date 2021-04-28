@@ -166,7 +166,16 @@ public class AerodromeDaoImpl implements AerodromeDao {
 
 	public List<Flight> getFlightsDeparture(String aeroName) {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		ArrayList<Flight> departing = 
+		ArrayList<Flight> flights = (ArrayList<Flight>) FlightDaoImpl.getFlights();
+		ArrayList<Flight> departing = null;
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			
+		} finally {
+			
+		}
+		
 		
 		return new ArrayList<Flight>();
 	}
