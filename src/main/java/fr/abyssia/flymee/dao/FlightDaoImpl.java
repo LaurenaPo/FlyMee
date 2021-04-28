@@ -1,5 +1,6 @@
 package fr.abyssia.flymee.dao;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -85,18 +86,53 @@ public class FlightDaoImpl implements FlightDao {
 		}
 	}
 
-	public Flight updateFlight(int flightID) {
-		for (Flight flight : flightList) {
-			if (flight.getId() == flightID) {
-				flightList.remove(flight);
-				Flight flightUpdated = new Flight(4, "TNS", "ORY", new GregorianCalendar(2021, 7, 4, 17, 30),
-						new GregorianCalendar(2021, 7, 4, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(),
-						new Aircraft(), 81f, "Tunis");
-				flightList.add(flightUpdated);
-				return flightUpdated;
+	public Flight updateFlight(Flight flight) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Flight modif;
+		Transaction tx = pm.currentTransaction();
+		
+		try {
+			tx.begin();
+
+			modif = pm.getObjectById(Flight.class, flight.getId());
+			if (!(modif.getAerodromeDeparture().equals(flight.getAerodromeDeparture()))){
+				modif.setAerodromeDeparture(flight.getAerodromeDeparture());
 			}
+			if (!(modif.getAerodromeArrival().equals(flight.getAerodromeArrival()))){
+				modif.setAerodromeArrival(flight.getAerodromeArrival());
+			}
+			if (!(modif.getTimeDeparture().equals(flight.getTimeDeparture()))){
+				modif.setTimeDeparture(flight.getTimeDeparture());
+			}
+			if (!(modif.getTimeArrival().equals(flight.getTimeArrival()))){
+				modif.setTimeArrival(flight.getTimeArrival());
+			}
+			if (modif.getPlacesNumber() != flight.getPlacesNumber()){
+				modif.setPlacesNumber(flight.getPlacesNumber());
+			}
+			if (modif.getPlacesTaken() != flight.getPlacesTaken()){
+				modif.setPlacesTaken(flight.getPlacesTaken());
+			}
+			if (modif.getPassengerList() != flight.getPassengerList()){
+				modif.setPassengerList(flight.getPassengerList());
+			}
+			if (!(modif.getAircraft().equals(flight.getAircraft()))){
+				modif.setAircraft(flight.getAircraft());
+			}
+			if (modif.getPrice() != flight.getPrice()){
+				modif.setPrice(flight.getPrice());
+			}
+			if (!(modif.getMeetingPlace().equals(flight.getMeetingPlace()))){
+				modif.setMeetingPlace(flight.getMeetingPlace());
+			}
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return null;
+		return modif;
 	}
 
 	public boolean deleteFlight(int flightID) {

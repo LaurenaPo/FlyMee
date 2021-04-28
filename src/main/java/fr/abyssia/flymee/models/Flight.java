@@ -20,6 +20,7 @@ public class Flight {
 	public float price;
 	public String meetingPlace;
 
+
 	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, Calendar timeDeparture,
 			Calendar timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
 			Aircraft aircraft, float price, String meetingPlace) {
@@ -44,5 +45,94 @@ public class Flight {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getAerodromeDeparture() {
+		return aerodromeDeparture;
+	}
+
+	public void setAerodromeDeparture(String aerodromeDeparture) {
+		this.aerodromeDeparture = aerodromeDeparture;
+	}
+
+	public String getAerodromeArrival() {
+		return aerodromeArrival;
+	}
+
+	public void setAerodromeArrival(String aerodromeArrival) {
+		this.aerodromeArrival = aerodromeArrival;
+	}
+
+	public Calendar getTimeDeparture() {
+		return timeDeparture;
+	}
+
+	public void setTimeDeparture(Calendar timeDeparture) {
+		this.timeDeparture = timeDeparture;
+	}
+
+	public Calendar getTimeArrival() {
+		return timeArrival;
+	}
+
+	public void setTimeArrival(Calendar timeArrival) {
+		this.timeArrival = timeArrival;
+	}
+
+	public int getPlacesNumber() {
+		return placesNumber;
+	}
+
+	public void setPlacesNumber(int placesNumber) {
+		this.placesNumber = placesNumber;
+	}
+
+	public int getPlacesTaken() {
+		return placesTaken;
+	}
+
+	public void setPlacesTaken(int placesTaken) {
+		this.placesTaken = placesTaken;
+	}
+
+	public Pilot getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
+	}
+
+	public List<User> getPassengerList() {
+		return passengerList;
+	}
+
+	public void setPassengerList(List<User> passengerList) {
+		this.passengerList = passengerList;
+	}
+
+	public Aircraft getAircraft() {
+		return aircraft;
+	}
+
+	public void setAircraft(Aircraft aircraft) {
+		this.aircraft = aircraft;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getMeetingPlace() {
+		return meetingPlace;
+	}
+
+	public void setMeetingPlace(String meetingPlace) {
+		this.meetingPlace = meetingPlace;
+	}
+
 
 }

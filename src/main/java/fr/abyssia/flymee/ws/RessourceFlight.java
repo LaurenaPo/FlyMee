@@ -45,9 +45,9 @@ public class RessourceFlight {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}")
-	public Flight updateFlight(@PathParam("id") int flightID) {
-		return this.flights.updateFlight(flightID);
+	@Path("/flight/")
+	public Flight updateFlight(@PathParam("flight") Flight flight) {
+		return this.flights.updateFlight(flight);
 	}
 
 	@DELETE

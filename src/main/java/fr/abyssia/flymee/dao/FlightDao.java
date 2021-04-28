@@ -30,7 +30,7 @@ public interface FlightDao {
 	 * 
 	 * @return the update of the flight
 	 */
-	Flight updateFlight(int flightID);
+	Flight updateFlight(Flight flight);
 
 	/**
 	 * 
