@@ -18,9 +18,9 @@ import fr.abyssia.flymee.models.User;
 public class AerodromeDaoImpl implements AerodromeDao {
 	private PersistenceManagerFactory pmf;
 	
-	List<Aerodrome> aerodromeList;
+	/*List<Aerodrome> aerodromeList;
 	List<Flight> flightListDeparture;
-	List<Flight> flightListArrival;
+	List<Flight> flightListArrival;*/
 	
 	public AerodromeDaoImpl(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
@@ -164,12 +164,10 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		
 	}
 
-	public List<Flight> getFlightsDeparture(int aerodromeID) {
-		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
-				return this.flightListDeparture;
-			}
-		}
+	public List<Flight> getFlightsDeparture(String aeroName) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		ArrayList<Flight> departing = 
+		
 		return new ArrayList<Flight>();
 	}
 

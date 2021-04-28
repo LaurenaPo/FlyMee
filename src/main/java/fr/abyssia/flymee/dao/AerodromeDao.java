@@ -27,7 +27,7 @@ public interface AerodromeDao {
 	 * 
 	 * @return the update of the aerodrome
 	 */
-	Aerodrome updateAerodrome(int aerodromeID);
+	Aerodrome updateAerodrome(Aerodrome aero);
 
 	/**
 	 * 
