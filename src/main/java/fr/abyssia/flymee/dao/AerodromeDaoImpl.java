@@ -136,7 +136,6 @@ public class AerodromeDaoImpl implements AerodromeDao {
 			tx.begin();
 			Aerodrome ad = pm.getObjectById(Aerodrome.class, aerodromeID);
 			pm.deletePersistent(ad);
-
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {

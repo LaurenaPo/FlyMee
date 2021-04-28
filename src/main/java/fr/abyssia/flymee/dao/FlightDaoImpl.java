@@ -135,14 +135,21 @@ public class FlightDaoImpl implements FlightDao {
 		return modif;
 	}
 
-	public boolean deleteFlight(int flightID) {
-		for (Flight flight : flightList) {
-			if (flight.getId() == flightID) {
-				flightList.remove(flight);
-				return true;
+	public void deleteFlight(int flightID) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Flight fl = pm.getObjectById(Flight.class, flightID);
+			pm.deletePersistent(fl);
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return false;
 	}
 
 	public List<User> getPassengers(int flightID) {

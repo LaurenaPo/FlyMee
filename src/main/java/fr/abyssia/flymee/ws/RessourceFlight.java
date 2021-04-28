@@ -53,8 +53,8 @@ public class RessourceFlight {
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public boolean deleteFlight(@PathParam("id") int flightID) {
-		return this.flights.deleteFlight(flightID);
+	public void deleteFlight(@PathParam("id") int flightID) {
+		this.flights.deleteFlight(flightID);
 	}
 
 	@GET

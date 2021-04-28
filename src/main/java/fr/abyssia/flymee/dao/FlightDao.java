@@ -37,7 +37,7 @@ public interface FlightDao {
 	 * @param flightID
 	 * @return true if the flight is successfully deleted, false otherwise
 	 */
-	boolean deleteFlight(int flightID);
+	void deleteFlight(int flightID);
 
 	/**
 	 * 
