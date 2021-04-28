@@ -11,4 +11,9 @@ public class DaoFactory {
 		return new AerodromeDaoImpl(pmf);
 	}
 
+	
+	public static FlightDao getFlightDao() {
+		return new FlightDaoImpl(pmf);
+	}
+	
 }

@@ -41,12 +41,12 @@ public interface AerodromeDao {
 	 * @param aerodromeID
 	 * @return all the flights of a specific departure
 	 */
-	List<Flight> getFlightsDeparture(int aerodromeID);
+	List<Flight> getFlightsDeparture(String name);
 
 	/**
 	 * 
 	 * @param aerodromeID
 	 * @return all the flights of a specific arrival
 	 */
-	List<Flight> getFlightsArrival(int aerodromeID);
+	List<Flight> getFlightsArrival(String name);
 }

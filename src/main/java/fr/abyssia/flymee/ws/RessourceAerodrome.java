@@ -59,14 +59,14 @@ public class RessourceAerodrome {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}/departure")
-	public List<Flight> getFlightsDeparture(@PathParam("id") int aerodromeID) {
-		return this.aerodromes.getFlightsDeparture(aerodromeID);
+	public List<Flight> getFlightsDeparture(@PathParam("id") String name) {
+		return this.aerodromes.getFlightsDeparture(name);
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}/arrival")
-	public List<Flight> getFlightsArrival(@PathParam("id") int aerodromeID) {
-		return this.aerodromes.getFlightsArrival(aerodromeID);
+	public List<Flight> getFlightsArrival(@PathParam("id") String name) {
+		return this.aerodromes.getFlightsArrival(name);
 	}
 }

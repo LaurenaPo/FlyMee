@@ -166,27 +166,49 @@ public class AerodromeDaoImpl implements AerodromeDao {
 
 	public List<Flight> getFlightsDeparture(String aeroName) {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		ArrayList<Flight> flights = (ArrayList<Flight>) FlightDaoImpl.getFlights();
-		ArrayList<Flight> departing = null;
+		FlightDaoImpl fdi = (FlightDaoImpl) DaoFactory.getFlightDao();
+		ArrayList<Flight> flights = (ArrayList<Flight>) fdi.getFlights();
+		ArrayList<Flight> departing = new ArrayList<Flight>();
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
+			for( Flight f : flights) {
+				if (f.getAerodromeDeparture().equals(aeroName)) {
+					departing.add(f);
+				}
+				tx.commit();
+			}
 			
 		} finally {
-			
-		}
-		
-		
-		return new ArrayList<Flight>();
-	}
-
-	public List<Flight> getFlightsArrival(int aerodromeID) {
-		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
-				return this.flightListArrival;
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return new ArrayList<Flight>();
+		return departing;
 	}
 
+	public List<Flight> getFlightsArrival(String aeroName) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		FlightDaoImpl fdi = (FlightDaoImpl) DaoFactory.getFlightDao();
+		ArrayList<Flight> flights = (ArrayList<Flight>) fdi.getFlights();
+		ArrayList<Flight> arriving = new ArrayList<Flight>();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			for( Flight f : flights) {
+				if (f.getAerodromeArrival().equals(aeroName)) {
+					arriving.add(f);
+				}
+				tx.commit();
+			}
+			
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return arriving;
+	}
 }
