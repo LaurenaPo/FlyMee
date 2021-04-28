@@ -16,11 +16,11 @@ import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
-public class FlightDaoImp implements FlightDao {
+public class FlightDaoImpl implements FlightDao {
 	List<Flight> flightList;
 	private PersistenceManagerFactory pmf;
 
-	public FlightDaoImp(PersistenceManagerFactory pmf) {
+	public FlightDaoImpl(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
 	}
 
@@ -69,7 +69,20 @@ public class FlightDaoImp implements FlightDao {
 	}
 
 	public void addFlight(Flight flight) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
 
+			pm.makePersistent(flight);
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 	}
 
 	public Flight updateFlight(int flightID) {

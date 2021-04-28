@@ -39,8 +39,8 @@ public class RessourceFlight {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Flight createFlight() {
-		return this.flights.createFlight();
+	public void addFlight(Flight flight) {
+		this.flights.addFlight(flight);
 	}
 
 	@POST

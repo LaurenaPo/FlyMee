@@ -38,8 +38,8 @@ public class RessourceAerodrome {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public void addAerodrome(int id, String country, String town, String name) {
-		this.aerodromes.addAerodrome(id,country, town, name);
+	public void addAerodrome(Aerodrome aero) {
+		this.aerodromes.addAerodrome(aero);
 	}
 
 	@POST
