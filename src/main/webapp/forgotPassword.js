@@ -1,27 +1,29 @@
-  function getServerData(url, success){
-      $.ajax({
-          dataType: "json",
-          url: url
-      }).done(success);
-  }
-  
-  function checkEmail(container) {
-      if (container == true) {
-        window.location.href="newPassword.html";
-        /**
-         * plus l'appel au webservice pour envoyer l'email
-         */
-      }
-      else{
-        alert("Veuillez rentrer un email correcte");
-      }
-  }
-  
-  
-  $(function () {
-    $("#buttonSend").click(function () {
-      var email = $("#email").val();
-      getServerData("ws/users/login/"+email,checkEmail);
-      
+function getServerData(url, success){
+    $.ajax({
+        dataType: "json",
+        url: url
+    }).done(success);
+}
+
+function checkEmail(container) {
+    var count = 0;
+    var emailUser = $("#email").val();
+    container.forEach(element => {
+        if (element.email == emailUser) {
+            window.location.href="newPassword.html";
+            count+=1;
+            /**
+            * plus le code pour l'email
+            */
+        }
     });
+    if (count == 0) {
+        alert("Our email address is incorect");
+    }     
+}
+
+$(function () {
+  $("#buttonSend").click(function () {
+    getServerData("ws/users",checkEmail);
   });
+});
