@@ -2,6 +2,7 @@ package com.flymee.ws;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -36,17 +37,12 @@ public class RessourceUser {
 		return this.users.getUser(userID);
 	}
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("login/{email}")
-	public boolean getUser(@PathParam("email") String userEmail) {
-		return this.users.getEmail(userEmail);
-	}
-
-	@PUT
-	@Produces(MediaType.APPLICATION_JSON)
-	public User createUser() {
-		return this.users.createUser();
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("signup/{email}/{password}/{pilot}")
+	public boolean createUser(@PathParam("email") String userEmail, @PathParam("password") String userPassword,
+			@PathParam("pilot") boolean pilot) {
+		return this.users.createUser(userEmail, userPassword, pilot);
 	}
 
 	@POST
@@ -84,7 +80,7 @@ public class RessourceUser {
 		return this.users.login();
 	}
 
-	@POST
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/logout")
 	public boolean logout() {
