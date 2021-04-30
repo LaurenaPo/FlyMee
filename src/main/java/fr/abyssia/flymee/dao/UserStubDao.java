@@ -47,11 +47,10 @@ public class UserStubDao implements UserDao {
 		return null;
 	}
 
-	public User createUser() {
+	public boolean createUser(String userEmail, String userPassword, boolean pilot) {
 		User newUser = new User(4, "Oak", "Cacahouète", "oak.cacahouete@gmail.com", LocalDate.of(1999, 10, 17), "1234");
 		userList.add(newUser);
-		;
-		return newUser;
+		return true;
 	}
 
 	public User updateUser(int userID) {
@@ -107,17 +106,4 @@ public class UserStubDao implements UserDao {
 	public boolean logout() {
 		return true;
 	}
-
-	public boolean getEmail(String userEmail) {
-		for (User user : this.userList) {
-			System.out.println(user.email);
-			if (user.email.equals(userEmail)) {
-				System.out.println("coucou");
-				return true;
-			}
-		}
-		System.out.println("cici");
-		return false;
-	}
-
 }
