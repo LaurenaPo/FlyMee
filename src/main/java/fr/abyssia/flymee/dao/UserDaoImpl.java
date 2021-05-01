@@ -154,12 +154,30 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public List<Flight> getFlights(int userID) {
-		for (User user : userList) {
-			if (user.getId() == userID) {
-				return this.flightList;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		FlightDaoImpl fdi = (FlightDaoImpl) DaoFactory.getFlightDao();
+		ArrayList<Flight> flights = (ArrayList<Flight>) fdi.getFlights();
+		ArrayList<Flight> departing = new ArrayList<Flight>();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			for( Flight f : flights) {
+				for (User u : f.getPassengerList()) {
+					if (u.equals(pm.getObjectById(User.class, userID))) {
+						departing.add(f);	
+				}
+				
+				}
+				tx.commit();
 			}
+			
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return new ArrayList<Flight>();
+		return departing;
 	}
 
 	public boolean reservedFlight(int userID, int flightID) {
