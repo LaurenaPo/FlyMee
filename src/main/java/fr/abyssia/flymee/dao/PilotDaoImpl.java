@@ -121,28 +121,45 @@ public class PilotDaoImpl implements PilotDao {
 		return modif;
 	}
 
-	public boolean deletePilot(int pilotID) {
-		for (Pilot pilot : pilotList) {
-			if (pilot.getId() == pilotID) {
-				pilotList.remove(pilot);
-				return true;
+	public void deletePilot(int pilotID) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Pilot pl = pm.getObjectById(Pilot.class, pilotID);
+			pm.deletePersistent(pl);
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return false;
 	}
 
 	public List<Flight> getFlights(int pilotID) {
-		List<Flight> result = new ArrayList<Flight>();
-		for (Pilot pilot : pilotList) {
-			if (pilot.getId() == pilotID) {
-				for (Flight flight : flightList) {
-					if (flight.pilot == pilot) {
-						result.add(flight);
-					}
+		PersistenceManager pm = pmf.getPersistenceManager();
+		FlightDaoImpl fdi = (FlightDaoImpl) DaoFactory.getFlightDao();
+		ArrayList<Flight> flights = (ArrayList<Flight>) fdi.getFlights();
+		ArrayList<Flight> departing = new ArrayList<Flight>();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			for( Flight f : flights) {
+				if (f.getPilot().equals(pm.getObjectById(Pilot.class, pilotID))) {
+					departing.add(f);
 				}
+				tx.commit();
 			}
+			
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return result;
+		return departing;
 	}
 
 	public List<Aircraft> getAircrafts(int pilotID) {

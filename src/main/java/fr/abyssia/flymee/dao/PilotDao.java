@@ -36,7 +36,7 @@ public interface PilotDao {
 	 * @param pilotID
 	 * @return true if the pilot is successfully deleted, false otherwise
 	 */
-	boolean deletePilot(int pilotID);
+	void deletePilot(int pilotID);
 
 	/**
 	 * 

@@ -16,4 +16,8 @@ public class DaoFactory {
 		return new FlightDaoImpl(pmf);
 	}
 	
+	public static PilotDao getPilotDao() {
+		return new PilotDaoImpl(pmf);
+	}
+	
 }

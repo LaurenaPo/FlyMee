@@ -5,34 +5,21 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.jdo.PersistenceManagerFactory;
+
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
-public class UserStubDao implements UserDao {
-
+public class UserDaoImpl implements UserDao {
+	PersistenceManagerFactory pmf; 
+	
 	List<User> userList;
 	List<Flight> flightList;
 
-	public UserStubDao() {
-		this.userList = new ArrayList<User>();
-		User test1 = new User(1, "Jean", "Dupont", "jean.dupont@gmail.com", LocalDate.of(2000, 1, 1), "1234");
-		User test2 = new User(2, "Marine", "Dupont", "marine.dupont@gmail.com", LocalDate.of(2000, 1, 2), "1234");
-		User test3 = new User(3, "Marc", "Dupont", "marc.dupont@gmail.com", LocalDate.of(2000, 1, 3), "1234");
-		this.userList.add(test1);
-		this.userList.add(test2);
-		this.userList.add(test3);
-
-		this.flightList = new ArrayList<Flight>();
-		Flight flight1 = new Flight(1, "NCE", "ORY", new GregorianCalendar(2021, 4, 4, 17, 30),
-				new GregorianCalendar(2021, 4, 4, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 81f,
-				"Nice");
-		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
-				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, new Pilot(), this.userList, new Aircraft(), 87f,
-				"Ch�telet");
-		this.flightList.add(flight1);
-		this.flightList.add(flight2);
+	public UserDaoImpl(PersistenceManagerFactory pmf) {
+		this.pmf = pmf;
 	}
 
 	public List<User> getUsers() {
