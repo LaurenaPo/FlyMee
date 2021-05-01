@@ -155,11 +155,22 @@ public class FlightDaoImpl implements FlightDao {
 	}
 
 	public List<User> getPassengers(int flightID) {
-		for (Flight flight : flightList) {
-			if (flight.getId() == flightID) {
-				return flight.passengerList;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		List<User> passengers = new ArrayList<User>();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Flight fl = pm.getObjectById(Flight.class, flightID);
+			passengers = fl.getPassengerList();
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return new ArrayList<User>();
+		return passengers;
+		
 	}
 }
