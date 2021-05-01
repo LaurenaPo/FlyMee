@@ -56,11 +56,11 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		this.flightListArrival.add(flight4);
 	}*/
 
-	public List<Aerodrome> getAerodromes() {// retourne la liste complete des aerodromes : pas de filtre
+	public List<Aerodrome> getAerodromes() {
 		List<Aerodrome> list = null;
 		List<Aerodrome> detached = new ArrayList<Aerodrome>();
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		Transaction tx = pm.currentTransaction(); 
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Aerodrome.class);
