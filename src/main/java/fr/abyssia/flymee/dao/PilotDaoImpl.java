@@ -163,15 +163,26 @@ public class PilotDaoImpl implements PilotDao {
 	}
 
 	public List<Aircraft> getAircrafts(int pilotID) {
-		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
-		for (Pilot pilot : pilotList) {
-			if (pilot.getId() == pilotID) {
-				Aircraft aircraft1 = new Aircraft(1, pilot, "", 4);
-				Aircraft aircraft2 = new Aircraft(2, pilot, "", 5);
-				aircraftList.add(aircraft1);
-				aircraftList.add(aircraft2);
+		PersistenceManager pm = pmf.getPersistenceManager();
+		AircraftDaoImpl adi = (AircraftDaoImpl) DaoFactory.getAircraftDao();
+		List<Aircraft> all = (ArrayList<Aircraft>) adi.getAircrafts();
+		List<Aircraft> list = new ArrayList<Aircraft>();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Pilot p = pm.getObjectById(Pilot.class, pilotID);
+			for (Aircraft a : all) {
+				if (a.getPilot().equals(p)) {
+					list.add(a);
+				}
 			}
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return aircraftList;
+		return list;
+		//liste des avions du pilote en question 
 	}
 }
