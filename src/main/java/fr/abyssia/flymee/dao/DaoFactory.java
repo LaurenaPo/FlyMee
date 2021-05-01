@@ -11,7 +11,6 @@ public class DaoFactory {
 		return new AerodromeDaoImpl(pmf);
 	}
 
-	
 	public static FlightDao getFlightDao() {
 		return new FlightDaoImpl(pmf);
 	}
@@ -20,4 +19,7 @@ public class DaoFactory {
 		return new PilotDaoImpl(pmf);
 	}
 	
+	public static UserDao getUserDao() {
+		return new UserDaoImpl(pmf);
+	}
 }
