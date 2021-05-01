@@ -22,7 +22,7 @@ public interface PilotDao {
 	 * 
 	 * @return a new pilot
 	 */
-	Pilot createPilot();
+	void addPilot(Pilot pilot);
 
 	/**
 	 * 

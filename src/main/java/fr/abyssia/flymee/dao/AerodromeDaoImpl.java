@@ -55,7 +55,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		this.flightListArrival.add(flight3);
 		this.flightListArrival.add(flight4);
 	}*/
-
+	@SuppressWarnings({ "unchecked" })
 	public List<Aerodrome> getAerodromes() {
 		List<Aerodrome> list = null;
 		List<Aerodrome> detached = new ArrayList<Aerodrome>();
@@ -76,6 +76,7 @@ public class AerodromeDaoImpl implements AerodromeDao {
 		return detached;
 	}
 
+	@SuppressWarnings({ "unchecked" })
 	public Aerodrome getAerodrome(int aerodromeID) {
 		List<Aerodrome> ad = null;
 		List<Aerodrome> detached = new ArrayList<Aerodrome>();

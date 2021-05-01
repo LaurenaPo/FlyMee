@@ -5,54 +5,89 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
+import javax.jdo.Transaction;
+
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
 import fr.abyssia.flymee.models.User;
 
-public class PilotStubDao implements PilotDao {
+public class PilotDaoImpl implements PilotDao {
+	
+	PersistenceManagerFactory pmf;
 
 	List<Pilot> pilotList;
 	List<Flight> flightList;
 
-	public PilotStubDao() {
-		this.pilotList = new ArrayList<Pilot>();
-		Pilot pilot1 = new Pilot(1, "Luna", "Blanc", "luna.blanc@gmail.com", LocalDate.of(2000, 4, 28), "1234", null,
-				null, 55, null, null, 40, null);
-		Pilot pilot2 = new Pilot(2, "Marc", "Dupont", "marc.dupont@gmail.com", LocalDate.of(1999, 10, 17), "1234", null,
-				null, 60, null, null, 100, null);
-		this.pilotList.add(pilot1);
-		this.pilotList.add(pilot2);
-
-		this.flightList = new ArrayList<Flight>();
-		Flight flight1 = new Flight(1, "NCE", "ORY", new GregorianCalendar(2021, 4, 4, 17, 30),
-				new GregorianCalendar(2021, 4, 4, 19, 00), 4, 2, pilot1, new ArrayList<User>(), new Aircraft(), 81f,
-				"Nice");
-		Flight flight2 = new Flight(2, "ORY", "NCE", new GregorianCalendar(2021, 4, 10, 17, 30),
-				new GregorianCalendar(2021, 4, 10, 19, 00), 4, 2, pilot1, new ArrayList<User>(), new Aircraft(), 87f,
-				"Ch�telet");
-		this.flightList.add(flight1);
-		this.flightList.add(flight2);
+	public PilotDaoImpl(PersistenceManagerFactory pmf) {
+		this.pmf = pmf;
 	}
-
+	
+	@SuppressWarnings({ "unchecked" })
 	public List<Pilot> getPilots() {
-		return pilotList;
-	}
-
-	public Pilot getPilot(int pilotID) {
-		for (Pilot pilot : pilotList) {
-			if (pilot.getId() == pilotID) {
-				return pilot;
+		List<Pilot> list = null;
+		List<Pilot> detached = new ArrayList<Pilot>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		try {
+			tx.begin();
+			Query q = pm.newQuery(Pilot.class);
+			list = (List<Pilot>) q.execute();
+			detached = (List<Pilot>) pm.detachCopyAll(list);
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
 			}
+			pm.close();
 		}
-		return null;
+		return detached;
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public Pilot getPilot(int pilotID) {
+
+		List<Pilot> pi = null;
+		List<Pilot> detached = new ArrayList<Pilot>();
+		Pilot resPi;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction(); 
+		try {
+			tx.begin();
+			Query q = pm.newQuery(Flight.class);
+			q.declareParameters("private int id");
+			q.setFilter("flightID == id");
+			pi = (List<Pilot>) q.execute(pilotID);
+			detached = (List<Pilot>) pm.detachCopyAll(pi);
+			resPi = detached.get(0);
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return resPi;
 	}
 
-	public Pilot createPilot() {
-		Pilot newPilot = new Pilot(3, "Julie", "Lou", "julie.lou@gmail.com", LocalDate.of(1995, 5, 14), "1234", null,
-				null, 57, null, null, 280, null);
-		pilotList.add(newPilot);
-		return newPilot;
+	public void addPilot(Pilot pilot) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+
+			pm.makePersistent(pilot);
+
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 	}
 
 	public Pilot updatePilot(int pilotID) {

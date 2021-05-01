@@ -24,7 +24,8 @@ public class FlightDaoImpl implements FlightDao {
 	public FlightDaoImpl(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
 	}
-
+	
+	@SuppressWarnings({ "unchecked" })
 	public List<Flight> getFlights() {
 		List<Flight> list = null;
 		List<Flight> detached = new ArrayList<Flight>();
@@ -44,7 +45,8 @@ public class FlightDaoImpl implements FlightDao {
 		}
 		return detached;
 	}
-
+	
+	@SuppressWarnings({ "unchecked" })
 	public Flight getFlight(int flightID) {
 		List<Flight> fl = null;
 		List<Flight> detached = new ArrayList<Flight>();
