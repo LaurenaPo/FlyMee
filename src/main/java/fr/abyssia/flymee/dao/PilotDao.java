@@ -29,7 +29,7 @@ public interface PilotDao {
 	 * @param pilotID
 	 * @return the update of the pilot
 	 */
-	Pilot updatePilot(int pilotID);
+	Pilot updatePilot(Pilot pilot);
 
 	/**
 	 * 

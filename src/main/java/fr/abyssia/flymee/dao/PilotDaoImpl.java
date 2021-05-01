@@ -10,6 +10,7 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
+import fr.abyssia.flymee.models.Aerodrome;
 import fr.abyssia.flymee.models.Aircraft;
 import fr.abyssia.flymee.models.Flight;
 import fr.abyssia.flymee.models.Pilot;
@@ -90,17 +91,34 @@ public class PilotDaoImpl implements PilotDao {
 		}
 	}
 
-	public Pilot updatePilot(int pilotID) {
-		for (Pilot pilot : pilotList) {
-			if (pilot.getId() == pilotID) {
-				pilotList.remove(pilot);
-				Pilot pilotUpdated = new Pilot(pilotID, "Julie", "Lou", "julie.lou@gmail.com",
-						LocalDate.of(1995, 5, 15), "1234", null, null, 57, null, null, 280, null);
-				pilotList.add(pilotUpdated);
-				return pilotUpdated;
+	public Pilot updatePilot(Pilot pilot) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Pilot modif;
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+
+			modif = pm.getObjectById(Pilot.class, pilot.getId());
+			if (!(modif.getExperience().equals(pilot.getExperience()))) {
+				modif.setExperience(pilot.getExperience());
 			}
+			if (!(modif.getQualifications().equals(pilot.getQualifications()))) {
+				modif.setQualifications(pilot.getQualifications());
+			}
+			if (!(modif.getFlightHours() == (pilot.getFlightHours()))) {
+				modif.setFlightHours(pilot.getFlightHours());
+			}
+			if (!(modif.getPhone().equals(pilot.getPhone()))) {
+				modif.setPhone(pilot.getPhone());
+			}
+			tx.commit();
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
-		return null;
+		return modif;
 	}
 
 	public boolean deletePilot(int pilotID) {
