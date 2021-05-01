@@ -9,6 +9,30 @@ public class Aircraft {
 	protected String modelName;
 	protected int placeNumber;
 
+	public Pilot getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public int getPlaceNumber() {
+		return placeNumber;
+	}
+
+	public void setPlaceNumber(int placeNumber) {
+		this.placeNumber = placeNumber;
+	}
+
 	public Aircraft(int id, Pilot pilot, String modelName, int i) {
 		this.setId(id);
 		this.pilot = pilot;

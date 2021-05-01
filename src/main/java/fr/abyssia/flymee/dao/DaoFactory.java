@@ -22,4 +22,8 @@ public class DaoFactory {
 	public static UserDao getUserDao() {
 		return new UserDaoImpl(pmf);
 	}
+	
+	public static AircraftDao getAircraftDao() {
+		return new AircraftDaoImpl(pmf);
+	}
 }
