@@ -191,10 +191,15 @@ public class UserDaoImpl implements UserDao {
 			for (User u : fl.getPassengerList()) {
 				if (u.getId() == userID) {
 					//gestion des doublons : 
-					return true;
+					return false;
+				}
+				else if (fl.getPlacesNumber()-fl.getPlacesTaken()<1) {
+					//gestion d'un vol plein
+					return false;
 				}
 				else {
-					fl.passengerList.add(us);
+					fl.getPassengerList().add(us);
+					fl.setPlacesTaken(fl.getPlacesTaken()-1);
 					return true;
 				}
 			}
