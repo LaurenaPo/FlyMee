@@ -21,20 +21,21 @@ public interface UserDao {
 	 * 
 	 * @return a new user
 	 */
-	User createUser();
+	void addUser(User user);
 
 	/**
 	 * 
 	 * @param userID
 	 * @return the update of the user
 	 */
-	User updateUser(int userID);
+	User updateUser(User user);
 
 	/**
 	 * 
+	 * @param userID
 	 * @return true if the user is successfully deleted, false otherwise
 	 */
-	boolean deleteUser();
+	void deleteUser(int userID);
 
 	/**
 	 * 

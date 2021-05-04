@@ -21,29 +21,32 @@ public interface AerodromeDao {
 	 * 
 	 * @return a new aerodrome
 	 */
-	Aerodrome createAerodrome();
+	void addAerodrome(Aerodrome aero);
 
 	/**
 	 * 
 	 * @return the update of the aerodrome
 	 */
-	Aerodrome updateAerodrome(int aerodromeID);
+	Aerodrome updateAerodrome(Aerodrome aero);
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return true if the aerodrome is successfully deleted, false otherwise
 	 */
-	boolean deleteAerodrome();
+	void deleteAerodrome(int aerodromeID);
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return all the flights of a specific departure
 	 */
-	List<Flight> getFlightsDeparture();
+	List<Flight> getFlightsDeparture(String name);
 
 	/**
 	 * 
+	 * @param aerodromeID
 	 * @return all the flights of a specific arrival
 	 */
-	List<Flight> getFlightsArrival();
+	List<Flight> getFlightsArrival(String name);
 }

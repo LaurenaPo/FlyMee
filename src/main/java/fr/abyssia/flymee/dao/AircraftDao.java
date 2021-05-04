@@ -20,17 +20,18 @@ public interface AircraftDao {
 	 * 
 	 * @return a new aircraft
 	 */
-	Aircraft createAircraft();
+	void addAircraft(Aircraft aircraft);
 
 	/**
 	 * 
 	 * @return the update of the aircraft
 	 */
-	Aircraft updateAircraft(int aircraftID);
+	Aircraft updateAircraft(Aircraft air);
 
 	/**
 	 * 
+	 * @param aircraftID
 	 * @return true if the aircraft is successfully deleted, false otherwise
 	 */
-	boolean deleteAircraft();
+	void deleteAircraft(int aircraftID);
 }
