@@ -1,7 +1,6 @@
 package com.flymee.models;
 
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.jdo.annotations.PersistenceCapable;
@@ -62,19 +61,19 @@ public class Flight {
 		this.aerodromeArrival = aerodromeArrival;
 	}
 
-	public Calendar getTimeDeparture() {
+	public LocalDateTime getTimeDeparture() {
 		return timeDeparture;
 	}
 
-	public void setTimeDeparture(Calendar timeDeparture) {
+	public void setTimeDeparture(LocalDateTime timeDeparture) {
 		this.timeDeparture = timeDeparture;
 	}
 
-	public Calendar getTimeArrival() {
+	public LocalDateTime getTimeArrival() {
 		return timeArrival;
 	}
 
-	public void setTimeArrival(Calendar timeArrival) {
+	public void setTimeArrival(LocalDateTime timeArrival) {
 		this.timeArrival = timeArrival;
 	}
 

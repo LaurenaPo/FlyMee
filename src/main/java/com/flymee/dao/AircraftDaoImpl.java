@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-import fr.abyssia.flymee.models.Aircraft;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.Pilot;
+import com.flymee.models.Aircraft;
+import com.flymee.models.Flight;
+import com.flymee.models.Pilot;
 
 public class AircraftDaoImpl implements AircraftDao {
 	PersistenceManagerFactory pmf;

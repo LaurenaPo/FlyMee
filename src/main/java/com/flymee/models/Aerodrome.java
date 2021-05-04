@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.models;
+package com.flymee.models;
 
 import javax.jdo.annotations.PersistenceCapable;
 

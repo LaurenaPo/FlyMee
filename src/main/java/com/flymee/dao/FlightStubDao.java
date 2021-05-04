@@ -69,14 +69,13 @@ public class FlightStubDao implements FlightDao {
 		return null;
 	}
 
-	public boolean deleteFlight(int flightID) {
+	public void deleteFlight(int flightID) {
 		for (Flight flight : flightList) {
 			if (flight.id == flightID) {
 				flightList.remove(flight);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
 
 	public List<User> getPassengers(int flightID) {
@@ -110,5 +109,17 @@ public class FlightStubDao implements FlightDao {
 			}
 		}
 		return listOfFlight;
+	}
+
+	@Override
+	public void addFlight(Flight flight) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Flight updateFlight(Flight flight) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

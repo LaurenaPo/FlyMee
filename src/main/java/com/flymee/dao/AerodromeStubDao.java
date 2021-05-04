@@ -52,7 +52,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public Aerodrome getAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return aerodrome;
 			}
 		}
@@ -68,7 +68,7 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public Aerodrome updateAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				aerodromeList.remove(aerodrome);
 				Aerodrome aerodromeUpdated = new Aerodrome(aerodromeID, "France", "Bordeaux", "Jupiter");
 				aerodromeList.add(aerodromeUpdated);
@@ -78,19 +78,18 @@ public class AerodromeStubDao implements AerodromeDao {
 		return null;
 	}
 
-	public boolean deleteAerodrome(int aerodromeID) {
+	public void deleteAerodrome(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				aerodromeList.remove(aerodrome);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
 
 	public List<Flight> getFlightsDeparture(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return this.flightListDeparture;
 			}
 		}
@@ -99,11 +98,35 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	public List<Flight> getFlightsArrival(int aerodromeID) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.id == aerodromeID) {
+			if (aerodrome.getId() == aerodromeID) {
 				return this.flightListArrival;
 			}
 		}
 		return new ArrayList<Flight>();
+	}
+
+	@Override
+	public void addAerodrome(Aerodrome aero) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Aerodrome updateAerodrome(Aerodrome aero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Flight> getFlightsDeparture(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Flight> getFlightsArrival(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

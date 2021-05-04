@@ -11,8 +11,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.AircraftDao;
-import fr.abyssia.flymee.models.Aircraft;
+import com.flymee.dao.AircraftDao;
+import com.flymee.models.Aircraft;
 
 @Path("/aircrafts")
 public class RessourceAircraft {
@@ -38,22 +38,22 @@ public class RessourceAircraft {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Aircraft createAircraft() {
-		return this.aircrafts.createAircraft();
+	public void createAircraft(Aircraft aircraft) {
+		this.aircrafts.addAircraft(aircraft);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public Aircraft updateAircraft(@PathParam("id") int aircraftID) {
+	public Aircraft updateAircraft(@PathParam("id") Aircraft aircraftID) {
 		return this.aircrafts.updateAircraft(aircraftID);
 	}
 
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public boolean deleteAircraft(@PathParam("id") int aircraftID) {
-		return this.aircrafts.deleteAircraft(aircraftID);
+	public void deleteAircraft(@PathParam("id") int aircraftID) {
+		this.aircrafts.deleteAircraft(aircraftID);
 	}
 
 }

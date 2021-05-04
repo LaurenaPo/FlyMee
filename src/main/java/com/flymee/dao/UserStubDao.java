@@ -40,7 +40,7 @@ public class UserStubDao implements UserDao {
 
 	public User getUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				return user;
 			}
 		}
@@ -55,7 +55,7 @@ public class UserStubDao implements UserDao {
 
 	public User updateUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				userList.remove(user);
 				User userUpdated = new User(userID, "Kao", "Otoko", "kao.otoko@gmail.com", LocalDate.of(1999, 10, 17),
 						"1234");
@@ -66,19 +66,18 @@ public class UserStubDao implements UserDao {
 		return null;
 	}
 
-	public boolean deleteUser(int userID) {
+	public void deleteUser(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				userList.remove(user);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
 
 	public List<Flight> getFlights(int userID) {
 		for (User user : userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				return this.flightList;
 			}
 		}
@@ -87,9 +86,9 @@ public class UserStubDao implements UserDao {
 
 	public boolean reservedFlight(int userID, int flightID) {
 		for (User user : this.userList) {
-			if (user.id == userID) {
+			if (user.getId() == userID) {
 				for (Flight flight : this.flightList) {
-					if (flight.id == flightID) {
+					if (flight.getId() == flightID) {
 						flight.passengerList.add(user);
 						return true;
 					}
@@ -105,5 +104,17 @@ public class UserStubDao implements UserDao {
 
 	public boolean logout() {
 		return true;
+	}
+
+	@Override
+	public void addUser(User user) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

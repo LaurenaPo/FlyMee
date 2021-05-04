@@ -11,11 +11,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.PilotDao;
-import fr.abyssia.flymee.models.Aircraft;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.Pilot;
-import fr.abyssia.flymee.models.User;
+import com.flymee.dao.PilotDao;
+import com.flymee.models.Aircraft;
+import com.flymee.models.Flight;
+import com.flymee.models.Pilot;
+import com.flymee.models.User;
 
 @Path("/pilots")
 public class RessourcePilot {
@@ -40,22 +40,22 @@ public class RessourcePilot {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Pilot createPilot() {
-		return this.pilots.createPilot();
+	public void createPilot(Pilot pilot) {
+		this.pilots.addPilot(pilot);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public User updatePilot(@PathParam("id") int pilotID) {
-		return this.pilots.updatePilot(pilotID);
+	public User updatePilot(@PathParam("id") Pilot pilot) {
+		return this.pilots.updatePilot(pilot);
 	}
 
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public boolean deletePilot(@PathParam("id") int pilotID) {
-		return this.pilots.deletePilot(pilotID);
+	public void deletePilot(@PathParam("id") int pilotID) {
+		this.pilots.deletePilot(pilotID);
 	}
 
 	@GET

@@ -12,8 +12,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.UserDao;
-import fr.abyssia.flymee.models.Flight;
+import com.flymee.dao.UserDao;
+import com.flymee.models.Flight;
+import com.flymee.models.Pilot;
+import com.flymee.models.User;
 
 @Path("/users")
 public class RessourceUser {
@@ -40,23 +42,22 @@ public class RessourceUser {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("signup/{email}/{password}/{pilot}")
-	public boolean createUser(@PathParam("email") String userEmail, @PathParam("password") String userPassword,
-			@PathParam("pilot") boolean pilot) {
-		return this.users.createUser(userEmail, userPassword, pilot);
+	public void createUser(Pilot pilot) {
+		this.users.addUser(pilot);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public User updateUser(@PathParam("id") int userID) {
-		return this.users.updateUser(userID);
+	public User updateUser(@PathParam("id") User user) {
+		return this.users.updateUser(user);
 	}
 
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public boolean deleteUser(@PathParam("id") int userID) {
-		return this.users.deleteUser(userID);
+	public void deleteUser(@PathParam("id") int userID) {
+		this.users.deleteUser(userID);
 	}
 
 	@GET

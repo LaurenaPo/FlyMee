@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.models;
+package com.flymee.models;
 
 import javax.jdo.annotations.PersistenceCapable;
 
@@ -39,7 +39,7 @@ public class Aircraft {
 		this.modelName = modelName;
 		this.placeNumber = i;
 	}
-	
+
 	public Aircraft() {
 	}
 

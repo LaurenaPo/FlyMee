@@ -41,7 +41,7 @@ public class PilotStubDao implements PilotDao {
 
 	public Pilot getPilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				return pilot;
 			}
 		}
@@ -57,7 +57,7 @@ public class PilotStubDao implements PilotDao {
 
 	public Pilot updatePilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				pilotList.remove(pilot);
 				Pilot pilotUpdated = new Pilot(pilotID, "Julie", "Lou", "julie.lou@gmail.com",
 						LocalDate.of(1995, 5, 15), "1234", null, null, 57, null, null, 280, null);
@@ -68,20 +68,19 @@ public class PilotStubDao implements PilotDao {
 		return null;
 	}
 
-	public boolean deletePilot(int pilotID) {
+	public void deletePilot(int pilotID) {
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				pilotList.remove(pilot);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
 
 	public List<Flight> getFlights(int pilotID) {
 		List<Flight> result = new ArrayList<Flight>();
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				for (Flight flight : flightList) {
 					if (flight.pilot == pilot) {
 						result.add(flight);
@@ -95,7 +94,7 @@ public class PilotStubDao implements PilotDao {
 	public List<Aircraft> getAircrafts(int pilotID) {
 		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
 		for (Pilot pilot : pilotList) {
-			if (pilot.id == pilotID) {
+			if (pilot.getId() == pilotID) {
 				Aircraft aircraft1 = new Aircraft(1, pilot, "", 4);
 				Aircraft aircraft2 = new Aircraft(2, pilot, "", 5);
 				aircraftList.add(aircraft1);
@@ -103,5 +102,17 @@ public class PilotStubDao implements PilotDao {
 			}
 		}
 		return aircraftList;
+	}
+
+	@Override
+	public void addPilot(Pilot pilot) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Pilot updatePilot(Pilot pilot) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

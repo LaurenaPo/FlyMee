@@ -1,4 +1,4 @@
-package fr.abyssia.flymee.dao;
+package com.flymee.dao;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;

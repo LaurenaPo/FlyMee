@@ -2,7 +2,8 @@ package com.flymee.dao;
 
 import java.util.List;
 
-import fr.abyssia.flymee.models.Flight;
+import com.flymee.models.Flight;
+import com.flymee.models.User;
 
 public interface UserDao {
 	/**

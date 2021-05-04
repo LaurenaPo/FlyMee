@@ -11,9 +11,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.abyssia.flymee.dao.FlightDao;
-import fr.abyssia.flymee.models.Flight;
-import fr.abyssia.flymee.models.User;
+import com.flymee.dao.FlightDao;
+import com.flymee.models.Flight;
+import com.flymee.models.User;
 
 @Path("/flights")
 public class RessourceFlight {
@@ -21,9 +21,6 @@ public class RessourceFlight {
 
 	public RessourceFlight(FlightDao flights) {
 		this.flights = flights;
-
-	public RessourceFlight() {
-		this.flights = new FlightStubDao();
 	}
 
 	@GET
