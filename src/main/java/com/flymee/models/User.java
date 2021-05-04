@@ -1,116 +1,126 @@
 package com.flymee.models;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.ext.JodaDeserializers;
+import org.codehaus.jackson.map.ext.JodaSerializers;
+
+import org.joda.time.LocalDate;
 
 import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 public class User {
-	private int id;
-	public String getFirstName() {
-		return firstName;
-	}
+    private int id;
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getProfilePicture() {
-		return profilePicture;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setProfilePicture(String profilePicture) {
-		this.profilePicture = profilePicture;
-	}
+    public String getProfilePicture() {
+        return profilePicture;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public int getWeight() {
-		return weight;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
+    public int getWeight() {
+        return weight;
+    }
 
-	protected String firstName;
-	protected String lastName;
-	protected String email;
-	protected LocalDate dateOfBirth;
-	protected String password;
-	protected String profilePicture;
-	protected String description;
-	protected int weight;
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
-	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
-			String profilePicture, String description, int weight) {
-		this.setId(id);
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.dateOfBirth = dateOfBirth;
-		this.password = password;
-		this.profilePicture = profilePicture;
-		this.description = description;
-		this.weight = weight;
-	}
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    @JsonFormat(shape = JsonFormat.Shape.STRING ,pattern = "yyyy-MM-dd")
+    @JsonDeserialize(using = JodaDeserializers.LocalDateDeserializer.class)
+    @JsonSerialize(using = JodaSerializers.LocalDateSerializer.class)
+    protected LocalDate dateOfBirth;
+    protected String password;
+    protected String profilePicture;
+    protected String description;
+    protected int weight;
 
-	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password) {
-		this.setId(id);
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.dateOfBirth = dateOfBirth;
-		this.password = password;
-	}
+    public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
+                String profilePicture, String description, int weight) {
+        this.setId(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+        this.profilePicture = profilePicture;
+        this.description = description;
+        this.weight = weight;
+    }
 
-	public User() {
-	}
+    public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password) {
+        this.setId(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public User() {
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }

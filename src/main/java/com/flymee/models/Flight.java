@@ -1,6 +1,5 @@
 package com.flymee.models;
-
-import java.time.LocalDateTime;
+import org.joda.time.LocalDateTime;
 import java.util.List;
 
 import javax.jdo.annotations.PersistenceCapable;

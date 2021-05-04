@@ -1,5 +1,7 @@
 package com.flymee;
 
+import com.flymee.dao.DaoFactory;
+import javax.jdo.JDOEnhancer;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
@@ -13,6 +15,8 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 
+import javax.jdo.JDOHelper;
+
 public class JettyMain {
 
 	public static void main(String[] args) throws Exception {
@@ -24,6 +28,7 @@ public class JettyMain {
 		connector.setHost("0.0.0.0");
 		connector.setPort(8080);
 		connector.setIdleTimeout(30000);
+
 		server.addConnector(connector);
 
 		// Configure Jersey

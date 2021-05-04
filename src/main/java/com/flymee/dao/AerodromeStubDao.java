@@ -1,6 +1,5 @@
 package com.flymee.dao;
-
-import java.time.LocalDateTime;
+import org.joda.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,21 +25,21 @@ public class AerodromeStubDao implements AerodromeDao {
 
 		this.flightListDeparture = new ArrayList<Flight>();
 		this.flightListArrival = new ArrayList<Flight>();
-		Flight flight1 = new Flight(1, "NCE", "ORY", LocalDateTime.of(2021, 4, 4, 17, 30),
-				LocalDateTime.of(2021, 4, 4, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 81f,
+		Flight flight1 = new Flight(1, "NCE", "ORY", new LocalDateTime(2021, 4, 4, 17, 30),
+				new LocalDateTime(2021, 4, 4, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 81f,
 				"Nice");
-		Flight flight2 = new Flight(2, "ORY", "NCE", LocalDateTime.of(2021, 4, 10, 17, 30),
-				LocalDateTime.of(2021, 4, 10, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				87f, "Châtelet");
+		Flight flight2 = new Flight(2, "ORY", "NCE", new LocalDateTime(2021, 4, 10, 17, 30),
+				new LocalDateTime(2021, 4, 10, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
+				87f, "Chï¿½telet");
 		this.flightListDeparture.add(flight1);
 		this.flightListDeparture.add(flight2);
 
 		this.flightListArrival = new ArrayList<Flight>();
-		Flight flight3 = new Flight(1, "ORY", "NCE", LocalDateTime.of(2021, 5, 4, 18, 30),
-				LocalDateTime.of(2021, 5, 4, 20, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 83f,
-				"Châtelet");
-		Flight flight4 = new Flight(2, "TNS", "NCE", LocalDateTime.of(2021, 7, 10, 16, 30),
-				LocalDateTime.of(2021, 7, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 84f,
+		Flight flight3 = new Flight(1, "ORY", "NCE", new LocalDateTime(2021, 5, 4, 18, 30),
+				new LocalDateTime(2021, 5, 4, 20, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 83f,
+				"Chï¿½telet");
+		Flight flight4 = new Flight(2, "TNS", "NCE", new LocalDateTime(2021, 7, 10, 16, 30),
+				new LocalDateTime(2021, 7, 10, 19, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 84f,
 				"Tunis");
 		this.flightListArrival.add(flight3);
 		this.flightListArrival.add(flight4);
