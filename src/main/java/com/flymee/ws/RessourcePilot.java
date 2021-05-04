@@ -46,8 +46,8 @@ public class RessourcePilot {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}")
-	public User updatePilot(@PathParam("id") Pilot pilot) {
+	@Path("/")
+	public User updatePilot(Pilot pilot) {
 		return this.pilots.updatePilot(pilot);
 	}
 

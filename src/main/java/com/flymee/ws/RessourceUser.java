@@ -48,8 +48,8 @@ public class RessourceUser {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}")
-	public User updateUser(@PathParam("id") User user) {
+	@Path("/")
+	public User updateUser(User user) {
 		return this.users.updateUser(user);
 	}
 
