@@ -41,7 +41,7 @@ public class RessourceUser {
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("signup")
+	@Path("/signup")
 	public void createUser(User user) {
 		this.users.addUser(user);
 	}
