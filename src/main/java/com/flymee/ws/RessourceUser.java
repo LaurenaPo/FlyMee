@@ -39,11 +39,11 @@ public class RessourceUser {
 		return this.users.getUser(userID);
 	}
 
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("signup/{email}/{password}/{pilot}")
-	public void createUser(Pilot pilot) {
-		this.users.addUser(pilot);
+	public void createUser(User user) {
+		this.users.addUser(user);
 	}
 
 	@POST
