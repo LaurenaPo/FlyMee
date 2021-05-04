@@ -41,14 +41,14 @@ public class RessourceUser {
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("signup/{email}/{password}/{pilot}")
+	@Path("signup")
 	public void createUser(User user) {
 		this.users.addUser(user);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/")
+	@Path("/signup")
 	public User updateUser(User user) {
 		return this.users.updateUser(user);
 	}
