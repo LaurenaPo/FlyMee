@@ -60,7 +60,6 @@ main.homepage {
     margin-bottom: 20px;
 }
 
-
 .checkbox{
     font-size: 30px;
     color: white;
@@ -80,4 +79,3 @@ input[type=checkbox]
   transform: scale(2);
   padding: 10px;
 }
-
