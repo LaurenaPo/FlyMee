@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.flymee.dao.DaoFactory;
 import com.flymee.dao.UserDao;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
@@ -20,11 +21,11 @@ import com.flymee.models.User;
 @Path("/users")
 public class RessourceUser {
 	private UserDao users;
+	
+	public RessourceUser() {
+        this.users = DaoFactory.getUserDao();
+    }
 
-	public RessourceUser(UserDao users) {
-		this.users = users;
-
-	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
