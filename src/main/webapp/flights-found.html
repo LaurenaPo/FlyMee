@@ -52,44 +52,46 @@
         <main class="homepage">
             <div class="container center_div">
 				<h1 class="title_h1">Flights Found</h1>
-				<div class="list-of-flights">
-					<div id="a-flight-booked">
-						<div class="icon-and-title">
-							<i class="fas fa-location-arrow icon-font"></i>
-							<p class="aerodroms">DepartureAerodrom to ArrivalAerodrom</p>
-						</div>
-						<div class="other-info">
-							<div class="info-part">
-								<div class="icon-and-title">
-									<i class="fas fa-plane-arrival"></i>
-									<p class="other-info-texte">Arrival: date hour</p>
-								</div>
-								<div class="icon-and-title">
-									<i class="fas fa-plane-departure"></i>
-									<p class="other-info-texte">Departure: date hour</p>
-								</div>
-							</div>
-							<div class="info-part">
-								<div class="icon-and-title">
-									<i class="fas fa-stopwatch"></i>
-									<p class="other-info-texte">1h30</p>
-								</div>
-								<div class="icon-and-title">
-									<i class="fas fa-users"></i>
-									<p class="other-info-texte">3 passengers</p>
-								</div>
-							</div>
-							<div class="info-part-price">
-								<p class="price">95$</p>
-								<p class="other-info-texte">Per passenger</p>
-							</div>
-							<a class="btn btn-primary" href="#">More details</a>
-						</div>
-					</div>
+				<div class="list-of-flights" id="flightsContainer">
 				</div>
 				
             </div>
         </main>
+		<script id="flightTemplate" type="text/template">
+			<div id="a-flight-booked" class="mb-2">
+				<div class="icon-and-title">
+					<i class="fas fa-location-arrow icon-font"></i>
+					<p class="aerodroms"><%= departureAerodrome %> to <%= arrivalAerodrome %></p>
+				</div>
+				<div class="other-info">
+					<div class="info-part">
+						<div class="icon-and-title">
+							<i class="fas fa-plane-arrival"></i>
+							<p class="other-info-texte">Departure: <%= departureDate %></p>
+						</div>
+						<div class="icon-and-title">
+							<i class="fas fa-plane-departure"></i>
+							<p class="other-info-texte">Arrival: <%= arrivalDate %></p>
+						</div>
+					</div>
+					<div class="info-part">
+						<div class="icon-and-title">
+							<i class="fas fa-stopwatch"></i>
+							<p class="other-info-texte"></p>
+						</div>
+						<div class="icon-and-title">
+							<i class="fas fa-users"></i>
+							<p class="other-info-texte"><%= passengerCount %> passengers</p>
+						</div>
+					</div>
+					<div class="info-part-price">
+						<p class="price">$<%= price %></p>
+						<p class="other-info-texte">Per passenger</p>
+					</div>
+					<a class="btn btn-primary" href="#">More details</a>
+				</div>
+			</div>
+		</script>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>

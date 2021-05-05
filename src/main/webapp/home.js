@@ -1,17 +1,13 @@
-
-$( function() {
-  $( "#datepicker" ).datepicker();
+$(function() {
+  $("#datepicker").datepicker();
 } );
 
-$( function() {
-  var availableTags = [
-    "AerodromeA",
-    "AerodromeB",
-    "AerodromeC",
-    "AerodromeD",
-  ];
-  $( "#tags" ).autocomplete({
-    source: availableTags
+$(function() {
+  $.get("/ws/aerodromes").done(aerodromes => {    
+    let availableTags = aerodromes.map(x => x.name);
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
   });
 } );
 
@@ -72,19 +68,17 @@ function fillTable(container) {
 
 $(function () {
   $("#buttonSearch").click(function () {
-    var id = $("#tags").val();
-    var date = $("#datepicker").val();
-    var myDate = date.split("/");
-    var newDate = myDate[2] +"-"+ myDate[1]+"-"+myDate[1];
-    if (id == '') {
-        getServerData("ws/flights/", fillTable);
+    let departure = $("#tags").val();
+    let date = $("#datepicker").val();
+    let myDate = date.split("/");
+    let newDate = myDate[2] +"-"+ myDate[0]+"-"+myDate[1];
+    
+    if(departure !== "" && date !== ""){       
+      localStorage.setItem('departureAerodrome', departure);
+      localStorage.setItem('departureDate', newDate);
+      window.location.href="flights-found.html";
     }
-    else if ( myDate[1]==undefined ||  myDate[2]==undefined ||  myDate[0]==undefined) {
-        getServerData("ws/flights/search/" + id, fillTable);
-    }
-    else{
-        getServerData("ws/flights/" + id +"/"+ newDate, fillTable);
-    }
-    window.location.href="research.html";
+
   });
 });
+
