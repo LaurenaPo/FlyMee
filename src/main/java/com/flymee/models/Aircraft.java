@@ -1,14 +1,9 @@
 package com.flymee.models;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Aircraft {
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	private int id;
 	protected Pilot pilot;
 	protected String modelName;
