@@ -8,7 +8,8 @@ import javax.jdo.annotations.Persistent;
 
 @PersistenceCapable
 public class Aerodrome {
-	
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	private int id;
 	protected String country;
 	protected String town;

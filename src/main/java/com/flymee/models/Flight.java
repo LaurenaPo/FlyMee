@@ -3,10 +3,15 @@ package com.flymee.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Flight {
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	public int id;
 	public Aerodrome aerodromeDeparture;
 	public Aerodrome aerodromeArrival;
