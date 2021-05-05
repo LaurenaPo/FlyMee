@@ -61,7 +61,9 @@ public class DaoTest {
 		Aerodrome aero4 = new Aerodrome(4, "Espagne", "Levante", "Hacienda");
 		Aerodrome aero5 = new Aerodrome(5, "France", "Paris", "MCI 2-0 PSG");
 
-		Flight f1 = new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 6, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port");
+		Flight f1 = new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port");
+		Flight f2 = new Flight(1, aero2, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 15, 10), 4, 1, p1, List.of(u1, u2, u3), aircraft1, 45.0, "piazza d'espagna");
+		
 			
 		
 		aidi.addAircraft(aircraft1);
