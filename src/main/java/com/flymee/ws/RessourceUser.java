@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.DaoFactory;
 import com.flymee.dao.UserDao;
+import com.flymee.dao.UserStubDao;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
 import com.flymee.models.User;
@@ -25,7 +26,6 @@ public class RessourceUser {
 	public RessourceUser() {
         this.users = DaoFactory.getUserDao();
     }
-
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

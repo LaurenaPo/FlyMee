@@ -12,6 +12,7 @@ public class User {
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	private int id;
+
 	public String getFirstName() {
 		return firstName;
 	}
