@@ -1,4 +1,3 @@
-
 function success(data) {
   $("#name_and_role").text()
   $("#email_address").text() 
@@ -26,4 +25,3 @@ $(function() {
     console.log(data)
   });
 });
-

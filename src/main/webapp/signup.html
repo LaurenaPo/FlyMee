@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="css-jquery-ui/jquery-ui.min.css" />
 		<link rel="stylesheet" href="nav.css" />
 		<link rel="stylesheet" href="home.css" />
+		<link rel="stylesheet" href="login.css" />
 
     </head>
 
@@ -44,26 +45,29 @@
 		</nav>
 						
         <main class="homepage">
-            <div class="container" id="title_and_input">
-                <h1>SIGN UP</h1>
-				<h2>Email:</h2>
-                <div class="input_style" id="search_bar">
-                    <input class="form-control" type="email" id="email" placeholder="azerty@email.com"/>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+              
+                    <h1 class="title fadeIn first">Sign Up</h1>
+              
+                    <form>
+                        <input type="email" id="email" class="fadeIn second" name="login" placeholder="Email">
+                        <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
+						<input type="password" id="password2" class="fadeIn third" name="login" placeholder="Again our Password">
+						<p class="checkbox fadeIn fourth">
+							Pilot : <input  type="checkbox" name="login" class = "fadeIn third" value="blue" id="pilotcheck"/>
+						</p>
+                        <button id="buttonSignup" type="button" class="btn btn-primary button-submit fadeIn fourth" type="submit">Sign Up</button>
+                    </form>
+              
+                    <div id="formFooter">
+                            <div id="account">
+                                <p class="account-p">You already have an account ?</p>
+                                <a class="login-link" href="login.html">Login</a>
+                            </div>
+                    </div>
+              
                 </div>
-                <h2>Password:</h2>
-                <div class="input_style" id="search_bar">
-                    <input class="form-control" type="password" id="password" placeholder="Password..."/>
-                </div>
-                <h2>Enter the password again:</h2>
-                <div class="input_style" id="search_bar">
-                    <input class="form-control" type="password" id="password2" placeholder="Password..."/>
-                </div>
-                <div class="input_style" id="search_bar">
-                    <p class="checkbox">
-                        Pilot : <input  type="checkbox" value="blue" id="pilotcheck"/>
-                    </p>
-                </div>
-                <button id="buttonSignup" type="button" class="btn btn-primary button-submit">SIGN UP</button>
             </div>
         </main>
 

@@ -14,7 +14,7 @@ function checkLogin(container) {
     container.forEach(element => {
         if (element.email == emailUser) {
             if (element.password == passwordUser) {
-              window.location.href="newPassword.html";
+              window.location.href="homeLogin.html";
               count+=1;
             }
         }
