@@ -1,5 +1,6 @@
 package com.flymee.dao;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,9 @@ public class FlightStubDao implements FlightDao {
 
 	public FlightStubDao() {
 		ArrayList<User> userList = new ArrayList<User>();
-		User test1 = new User(1, "Jean", "Dupont", "jean.dupont@gmail.com", "1234");
-		User test2 = new User(2, "Marine", "Dupont", "marine.dupont@gmail.com", "1234");
-		User test3 = new User(3, "Marc", "Dupont", "marc.dupont@gmail.com", "1234");
+		User test1 = new User(1, "Jean", "Dupont", "jean.dupont@gmail.com", LocalDate.of(2000, 1, 1), "1234");
+		User test2 = new User(2, "Marine", "Dupont", "marine.dupont@gmail.com", LocalDate.of(2000, 1, 2), "1234");
+		User test3 = new User(3, "Marc", "Dupont", "marc.dupont@gmail.com", LocalDate.of(2000, 1, 3), "1234");
 		userList.add(test1);
 		userList.add(test2);
 		userList.add(test3);

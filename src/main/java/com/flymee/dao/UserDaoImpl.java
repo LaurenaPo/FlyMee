@@ -103,8 +103,14 @@ public class UserDaoImpl implements UserDao {
 			if (!(modif.getEmail().equals(user.getEmail()))) {
 				modif.setEmail(user.getEmail());
 			}
+			if (!(modif.getDateOfBirth().equals(user.getDateOfBirth()))) {
+				modif.setDateOfBirth(user.getDateOfBirth());
+			}
 			if (!(modif.getPassword().equals(user.getPassword()))) {
 				modif.setPassword(user.getPassword());
+			}
+			if (!(modif.getDateOfBirth().equals(user.getDateOfBirth()))) {
+				modif.setDateOfBirth(user.getDateOfBirth());
 			}
 			if (!(modif.getProfilePicture().equals(user.getProfilePicture()))) {
 				modif.setProfilePicture(user.getProfilePicture());
