@@ -62,8 +62,8 @@ public class DaoTest {
 		Aerodrome aero5 = new Aerodrome(5, "France", "Paris", "MCI 2-0 PSG");
 
 		Flight f1 = new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port");
-		Flight f2 = new Flight(1, aero2, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 15, 10), 4, 1, p1, List.of(u1, u2, u3), aircraft1, 45.0, "piazza d'espagna");
-		Flight f3 = new Flight(1, aero3, aero5, LocalDateTime.of(2021, 5, 6, 8, 0),LocalDateTime.of(2021, 5, 6, 9, 10), 2, 2, p3, List.of(u1, u2), aircraft2, 45.0, "gare de Lille");
+		Flight f2 = new Flight(2, aero2, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 15, 10), 4, 1, p1, List.of(u1, u2, u3), aircraft1, 45.0, "piazza d'espagna");
+		Flight f3 = new Flight(3, aero3, aero5, LocalDateTime.of(2021, 5, 6, 8, 0),LocalDateTime.of(2021, 5, 6, 9, 10), 2, 2, p3, List.of(u1, u2), aircraft2, 45.0, "gare de Lille");
 		
 		fdi.addFlight(f1);
 		fdi.addFlight(f2);
@@ -109,59 +109,13 @@ public class DaoTest {
 		Assert.assertEquals(5,udi.getUsers().size());	
 		
 		
-		//test add+remove passenger in a flight
-		flightDao.addPassenger((long)0, (long) 0);
-		flightDao.addPassenger((long)1, (long) 0);
-		flightDao.addPassenger((long)2, (long) 0);
-		flightDao.addPassenger((long)3, (long) 0);
-		Assert.assertEquals(4, flightDao.getPassengersList((long) 0).size());		
-
-		flightDao.removePassenger((long)2, (long) 0);
-		Assert.assertEquals(3, flightDao.getFlights().get(0).getPassengersList().size());
-		Assert.assertEquals(3, flightDao.getPassengersList((long) 0).size());
-		Assert.assertEquals(37, flightDao.getPrice((long) 0));
-		Assert.assertEquals(150, flightDao.getAvailableSeats((long) 0));
-		
+		fdi.addPassenger(1, 3);
+		Assert.assertEquals(3,f1.getPassengerList().size());
+		Assert.assertEquals(false, fdi.addPassenger(1, 1));
+		fdi.addPassenger(3, 5);
+		Assert.assertEquals(false, fdi.addPassenger(3, 5));
 
 		
-		Reservation resa1=new Reservation(passenger1.getPassengerId(),flight1.getId(),3);
-		Reservation resa2=new Reservation(passenger4.getPassengerId(),flight1.getId(),2);
-		Reservation resa3=new Reservation(passenger5.getPassengerId(),flight1.getId(),5);
-		Reservation resa4=new Reservation(passenger1.getPassengerId(),flight2.getId(),5);
-		Reservation resa5=new Reservation(passenger1.getPassengerId(),flight2.getId(),5);	
-		Reservation resa6=new Reservation(passenger1.getPassengerId(),flight2.getId(),200);	
-		
-		// test add reservation
-		reservationDao.addReservation(resa1);
-		reservationDao.addReservation(resa2);
-		reservationDao.addReservation(resa3);
-		reservationDao.addReservation(resa4);	
-		reservationDao.addReservation(resa6);	
-		
-		
-		Assert.assertEquals(4, flightDao.getFlights().size());
-		Assert.assertEquals(2,  flightDao.getFlights(30).size());
-		Assert.assertEquals(2,  flightDao.getFlights("2021-04-16 13:30","2021-04-16 23:30","Aerodrome 1").size());
-		Assert.assertEquals(2,  flightDao.getFlights(30,50).size());
-		Assert.assertEquals(4, reservationDao.getReservations().size());
-		Assert.assertEquals((150-(3+5+2)), flightDao.getFlights().get(0).getAvailableSeats());
-
-		passengerDao.addReservation((long)0,(long) 0);
-		passengerDao.addReservation((long)0,(long) 3);
-		passengerDao.addReservation((long)0,(long) 4);
-		passengerDao.getPassengers().get(0).display();
-		
-		Assert.assertEquals(3, passengerDao.getpassengerBookingList(passenger1.getPassengerId()).size());
-		
-		//test modify flight
-		flightDao.modifyFlight((long)3, "2021-10-04 11:30", "Marsupilami", "2021-10-06 11:30", "Aérodrome de l'eidd");
-		
-		flightDao.getFlights().get(3).display();
-		Assert.assertEquals(1,  flightDao.getFlights("2021-10-04 10:30","2021-10-05 11:30","Marsupilami").size());
-		
-		// test change number of seats
-		reservationDao.changeNumberOfSeats(8, (long) 0);
-		Assert.assertEquals((150-(8+5+2)), flightDao.getFlights().get(0).getAvailableSeats());
 
 	}
 }

@@ -181,6 +181,7 @@ public class FlightDaoImpl implements FlightDao {
 					}	
 				}
 				f.getPassengerList().add(pm.getObjectById(User.class, userId));
+				f.setPlacesTaken(f.getPlacesTaken()+1);
 				return true;
 			}
 			else {
