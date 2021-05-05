@@ -167,6 +167,57 @@ public class FlightDaoImpl implements FlightDao {
 		return passengers;
 
 	}
+	
+	public boolean addPassenger(int flightID, int userId) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Flight f = pm.getObjectById(Flight.class, flightID);
+		User u = pm.getObjectById(User.class, userId);
+		Transaction tx = pm.currentTransaction();
+		try {
+			if (f.getPlacesTaken()<f.getPlacesNumber()) {
+				for (User us : f.getPassengerList()) {
+					if (us.equals(u)) {
+						return false;
+					}	
+				}
+				f.getPassengerList().add(u);
+				f.setPlacesTaken(f.getPlacesTaken()+1);
+				return true;
+			}
+			else {
+				return false;
+			}
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public boolean cancelPassenger(int flightID, int userId) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Flight f = pm.getObjectById(Flight.class, flightID);
+		User u = pm.getObjectById(User.class, userId);
+		Transaction tx = pm.currentTransaction();
+		try {
+			for (User us : f.getPassengerList()) {
+				if (us.equals(u)) {
+					f.getPassengerList().remove(u);
+					f.setPlacesTaken(f.getPlacesTaken()-1);
+					return true;
+					}	
+				}
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return false;
+	}
+	
+	
 
 	@Override
 	public List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture) {
