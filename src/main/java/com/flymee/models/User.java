@@ -7,6 +7,7 @@ import javax.jdo.annotations.PersistenceCapable;
 @PersistenceCapable
 public class User {
 	private int id;
+
 	public String getFirstName() {
 		return firstName;
 	}

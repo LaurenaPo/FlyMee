@@ -1,4 +1,9 @@
-main.center {
+*{
+    box-sizing: border-box;
+    --blue-theme: #4A66AC;
+}
+
+main.homepage {
     height: calc(100vh - 85px);
     display: flex;
     flex-direction: column;
