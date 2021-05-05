@@ -32,7 +32,7 @@ import com.flymee.models.User;
 
 public class DaoTest {
 	
-	@SuppressWarnings({ "unused", "deprecation" })
+	@SuppressWarnings({ "unused" })
 	@Test
 	public void test() {
 		FlightDao fdi = DaoFactory.getFlightDao();
@@ -115,7 +115,8 @@ public class DaoTest {
 		fdi.addPassenger(3, 5);
 		Assert.assertEquals(false, fdi.addPassenger(3, 5));
 
-		
+		fdi.cancelPassenger(1, 3);
+		Assert.assertEquals(2, f1.getPassengerList().size());
 
 	}
 }

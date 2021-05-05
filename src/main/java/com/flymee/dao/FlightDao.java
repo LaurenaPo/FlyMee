@@ -44,6 +44,8 @@ public interface FlightDao {
 	void deleteFlight(int flightID);
 	
 	boolean addPassenger(int flightID, int userId);
+	
+	boolean cancelPassenger(int flightid, int userid);
 
 	/**
 	 * 
