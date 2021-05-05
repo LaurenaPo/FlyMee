@@ -29,11 +29,7 @@ public class AerodromeStubDao implements AerodromeDao {
 		Flight flight1 = new Flight(1, "NCE", "ORY", LocalDateTime.of(2021, 4, 4, 17, 30),
 				LocalDateTime.of(2021, 4, 4, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(), 81f,
 				"Nice");
-		Flight flight2 = new Flight(2, "ORY", "NCE", LocalDateTime.of(2021, 4, 10, 17, 30),
-				LocalDateTime.of(2021, 4, 10, 19, 00, 00), 4, 2, new Pilot(), new ArrayList<User>(), new Aircraft(),
-				87f, "Châtelet");
 		this.flightListDeparture.add(flight1);
-		this.flightListDeparture.add(flight2);
 
 		this.flightListArrival = new ArrayList<Flight>();
 		Flight flight3 = new Flight(1, "ORY", "NCE", LocalDateTime.of(2021, 5, 4, 18, 30),
@@ -119,8 +115,13 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	@Override
 	public List<Flight> getFlightsDeparture(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Flight> flightList = new ArrayList<Flight>();
+		for (Flight flight : flightListDeparture) {
+			if (flight.getAerodromeDeparture().equals(name)) {
+				flightList.add(flight);
+			}
+		}
+		return flightList;
 	}
 
 	@Override

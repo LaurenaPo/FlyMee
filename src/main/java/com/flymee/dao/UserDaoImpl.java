@@ -1,8 +1,6 @@
 package com.flymee.dao;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -10,30 +8,29 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-import com.flymee.models.Aerodrome;
-import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
-import com.flymee.models.Pilot;
 import com.flymee.models.User;
 
 public class UserDaoImpl implements UserDao {
-	PersistenceManagerFactory pmf; 
-	
+
+	PersistenceManagerFactory pmf;
+
 	List<User> userList;
 	List<Flight> flightList;
 
 	public UserDaoImpl(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
 	}
-	@SuppressWarnings({"unchecked"})
+
+	@SuppressWarnings({ "unchecked" })
 	public List<User> getUsers() {
 		List<User> list = null;
 		List<User> detached = new ArrayList<User>();
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); 
+		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(Aerodrome.class);
+			Query q = pm.newQuery(User.class);
 			list = (List<User>) q.execute();
 			detached = (List<User>) pm.detachCopyAll(list);
 			tx.commit();
@@ -45,14 +42,14 @@ public class UserDaoImpl implements UserDao {
 		}
 		return detached;
 	}
-	
-	@SuppressWarnings({"unchecked"})
+
+	@SuppressWarnings({ "unchecked" })
 	public User getUser(int userID) {
 		List<User> us = null;
 		List<User> detached = new ArrayList<User>();
 		User resUs;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); 
+		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
 			Query q = pm.newQuery(User.class);
@@ -92,40 +89,33 @@ public class UserDaoImpl implements UserDao {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		User modif;
 		Transaction tx = pm.currentTransaction();
-		
+
 		try {
 			tx.begin();
 
 			modif = pm.getObjectById(User.class, user.getId());
-			if (!(modif.getFirstName().equals(user.getFirstName()))){
+			if (!(modif.getFirstName().equals(user.getFirstName()))) {
 				modif.setFirstName(user.getFirstName());
 			}
-			if (!(modif.getLastName().equals(user.getLastName()))){
+			if (!(modif.getLastName().equals(user.getLastName()))) {
 				modif.setLastName(user.getLastName());
 			}
-			if (!(modif.getEmail().equals(user.getEmail()))){
+			if (!(modif.getEmail().equals(user.getEmail()))) {
 				modif.setEmail(user.getEmail());
 			}
-			if (!(modif.getDateOfBirth().equals(user.getDateOfBirth()))){
-				modif.setDateOfBirth(user.getDateOfBirth());
-			}
-			if (!(modif.getPassword().equals(user.getPassword()))){
+			if (!(modif.getPassword().equals(user.getPassword()))) {
 				modif.setPassword(user.getPassword());
 			}
-			if (!(modif.getDateOfBirth().equals(user.getDateOfBirth()))){
-				modif.setDateOfBirth(user.getDateOfBirth());
-			}
-			if (!(modif.getProfilePicture().equals(user.getProfilePicture()))){
+			if (!(modif.getProfilePicture().equals(user.getProfilePicture()))) {
 				modif.setProfilePicture(user.getProfilePicture());
 			}
-			if (!(modif.getDescription().equals(user.getDescription()))){
+			if (!(modif.getDescription().equals(user.getDescription()))) {
 				modif.setDescription(user.getDescription());
 			}
-			if (modif.getWeight() != user.getWeight()){
+			if (modif.getWeight() != user.getWeight()) {
 				modif.setWeight(user.getWeight());
 			}
-			
-			
+
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
@@ -161,16 +151,16 @@ public class UserDaoImpl implements UserDao {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			for( Flight f : flights) {
+			for (Flight f : flights) {
 				for (User u : f.getPassengerList()) {
 					if (u.equals(pm.getObjectById(User.class, userID))) {
-						departing.add(f);	
-				}
-				
+						departing.add(f);
+					}
+
 				}
 				tx.commit();
 			}
-			
+
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
@@ -182,7 +172,7 @@ public class UserDaoImpl implements UserDao {
 
 	public boolean reservedFlight(int userID, int flightID) {
 		PersistenceManager pm = pmf.getPersistenceManager();
-		
+
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -190,20 +180,18 @@ public class UserDaoImpl implements UserDao {
 			Flight fl = pm.getObjectById(Flight.class, flightID);
 			for (User u : fl.getPassengerList()) {
 				if (u.getId() == userID) {
-					//gestion des doublons : 
+					// gestion des doublons :
 					return false;
-				}
-				else if (fl.getPlacesNumber()-fl.getPlacesTaken()<1) {
-					//gestion d'un vol plein
+				} else if (fl.getPlacesNumber() - fl.getPlacesTaken() < 1) {
+					// gestion d'un vol plein
 					return false;
-				}
-				else {
+				} else {
 					fl.getPassengerList().add(us);
-					fl.setPlacesTaken(fl.getPlacesTaken()-1);
+					fl.setPlacesTaken(fl.getPlacesTaken() - 1);
 					return true;
 				}
 			}
-			
+
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();

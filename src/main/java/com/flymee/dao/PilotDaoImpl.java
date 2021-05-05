@@ -1,8 +1,6 @@
 package com.flymee.dao;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -10,14 +8,12 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-import com.flymee.models.Aerodrome;
 import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
-import com.flymee.models.User;
 
 public class PilotDaoImpl implements PilotDao {
-	
+
 	PersistenceManagerFactory pmf;
 
 	List<Pilot> pilotList;
@@ -26,13 +22,13 @@ public class PilotDaoImpl implements PilotDao {
 	public PilotDaoImpl(PersistenceManagerFactory pmf) {
 		this.pmf = pmf;
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public List<Pilot> getPilots() {
 		List<Pilot> list = null;
 		List<Pilot> detached = new ArrayList<Pilot>();
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		Transaction tx = pm.currentTransaction(); // ici : retour de tous les aerodromes ? ou par critere de selection ?
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Pilot.class);
@@ -47,7 +43,7 @@ public class PilotDaoImpl implements PilotDao {
 		}
 		return detached;
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public Pilot getPilot(int pilotID) {
 
@@ -55,7 +51,7 @@ public class PilotDaoImpl implements PilotDao {
 		List<Pilot> detached = new ArrayList<Pilot>();
 		Pilot resPi;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); 
+		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Flight.class);
@@ -146,13 +142,13 @@ public class PilotDaoImpl implements PilotDao {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			for( Flight f : flights) {
+			for (Flight f : flights) {
 				if (f.getPilot().equals(pm.getObjectById(Pilot.class, pilotID))) {
 					departing.add(f);
 				}
 				tx.commit();
 			}
-			
+
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
@@ -183,6 +179,6 @@ public class PilotDaoImpl implements PilotDao {
 			pm.close();
 		}
 		return list;
-		//liste des avions du pilote en question 
+		// liste des avions du pilote en question
 	}
 }

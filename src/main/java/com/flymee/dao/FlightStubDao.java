@@ -1,6 +1,5 @@
 package com.flymee.dao;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +14,9 @@ public class FlightStubDao implements FlightDao {
 
 	public FlightStubDao() {
 		ArrayList<User> userList = new ArrayList<User>();
-		User test1 = new User(1, "Jean", "Dupont", "jean.dupont@gmail.com", LocalDate.of(2000, 1, 1), "1234");
-		User test2 = new User(2, "Marine", "Dupont", "marine.dupont@gmail.com", LocalDate.of(2000, 1, 2), "1234");
-		User test3 = new User(3, "Marc", "Dupont", "marc.dupont@gmail.com", LocalDate.of(2000, 1, 3), "1234");
+		User test1 = new User(1, "Jean", "Dupont", "jean.dupont@gmail.com", "1234");
+		User test2 = new User(2, "Marine", "Dupont", "marine.dupont@gmail.com", "1234");
+		User test3 = new User(3, "Marc", "Dupont", "marc.dupont@gmail.com", "1234");
 		userList.add(test1);
 		userList.add(test2);
 		userList.add(test3);
@@ -85,30 +84,6 @@ public class FlightStubDao implements FlightDao {
 			}
 		}
 		return new ArrayList<User>();
-	}
-
-	public List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture) {
-		// Si la personne ne rentre que un lieu dans la recherche
-		List<Flight> listOfFlight = new ArrayList<Flight>();
-		if (timeDeparture == "1900-00-00") {
-			for (Flight flight : flightList) {
-				if (flight.aerodromeDeparture.equals(aerodromeDepature)) {
-					listOfFlight.add(flight);
-				}
-			}
-			return listOfFlight;
-		}
-
-		LocalDate dateTime = LocalDate.parse(timeDeparture);
-
-		// Si la personne rentre un lieu et une date complète
-		for (Flight flight : flightList) {
-			LocalDate dateFlight = flight.timeDeparture.toLocalDate();
-			if (flight.aerodromeDeparture.equals(aerodromeDepature) && dateTime.equals(dateFlight)) {
-				listOfFlight.add(flight);
-			}
-		}
-		return listOfFlight;
 	}
 
 	@Override
