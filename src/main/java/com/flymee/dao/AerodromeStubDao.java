@@ -87,9 +87,9 @@ public class AerodromeStubDao implements AerodromeDao {
 		}
 	}
 
-	public List<Flight> getFlightsDeparture(int aerodromeID) {
+	public List<Flight> getFlightsDeparture(String aerodromeName) {
 		for (Aerodrome aerodrome : aerodromeList) {
-			if (aerodrome.getId() == aerodromeID) {
+			if (aerodrome.getName().equals(aerodromeName)) {
 				return this.flightListDeparture;
 			}
 		}
@@ -113,12 +113,6 @@ public class AerodromeStubDao implements AerodromeDao {
 
 	@Override
 	public Aerodrome updateAerodrome(Aerodrome aero) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Flight> getFlightsDeparture(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
