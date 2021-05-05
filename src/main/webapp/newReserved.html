@@ -3,14 +3,16 @@
     <head>
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-		<title>FlyMee</title>
+		<title>FlyMee/login</title>
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-		<script src="https://kit.fontawesome.com/56ba00e1a6.js" crossorigin="anonymous"></script>
+		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-		<link rel="stylesheet" href="css-jquery-ui/jquery-ui.min.css" />
 		<link rel="stylesheet" href="nav.css" />
-		<link rel="stylesheet" href="home.css" />
+		<link rel="stylesheet" href="login.css" />
 
     </head>
 
@@ -27,13 +29,14 @@
 				<div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">HOME</a>
+							<a class="nav-link" href="homeLogin.html">HOME</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="logout.html">LOGOUT</a>
+                            <a class="nav-link" href="logout.html">LOGOUT</a>
 						</li>
                         <li class="nav-item">
 							<a class="nav-link" href="profile.html">PROFILE</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="helpLogin.html">HELP</a>
 						</li>
@@ -43,36 +46,22 @@
 		</nav>
 						
         <main class="homepage">
-            <div class="container" id="title_and_input">
-                <h1>Find a flight proposed by a pilot:</h1>
-                <div class="input_style" id="search_bar">
-					<i class="fas fa-location-arrow icon_font1"></i>
-                    <input class="form-control" id="tags" placeholder="Departure..."/>
-                </div>
-                <div class="input_style" id=date_bar>
-					<i class="fas fa-calendar-alt icon_font2"></i>
-					<input class="form-control" type="text" placeholder="Date: mm/jj/aaaa" id="datepicker">
-                </div>
-				<button type="button" class="btn btn-primary button-submit" id="buttonSearch">Search</button>	
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+              
+                    <h1 class="title fadeIn first">You have succefully reserved the flight</h1>
+              
+                    <form>
+						<p class = "fadeIn second">Please check our email with a recapulatif of the flight</p>
+                    </form>
+              
+				</div>
+              
             </div>
         </main>
 
-		<div class="container" id="output" style="display: none; background-color: white; box-shadow: 5px 5px 7px #000000;" >
-			<h1 style= "position: relative; left : 33%;">Result of the research</h1>
-			<div>
-				<div class="row">
-					<div class="col-12 col-md-4">
-						<div id="resultat" style= "position: relative; left : 50%;"></div>
-					</div>
-					<div class="col-12 col-md-8">
-				</div>
-			</div>
-		</div>
-
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-		<script type="text/javascript" src="jquery-ui.js"></script>
-	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-		<script type="text/javascript" src="homeLogin.js"></script>
+		<script type="text/javascript" src="home.js"></script>
 	</body>
 </html>
