@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>FlyMee - My booked flights</title>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+		<script src="https://kit.fontawesome.com/56ba00e1a6.js" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="css-jquery-ui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="nav.css" />
+		<link rel="stylesheet" href="my-booked-flights.css" />
+
+    </head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between fixed-top">
+			<div class="container-fluid">				
+				<div id="flymee_logo">
+					<img src="images/flymee_logo.png" alt="FlyMee Logo">
+					<h1>FlyMee</h1>
+				</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="user_home.html">HOME</a>
+						</li>
+						<div class="dropdown">
+							<a class="nav-link active dropdown-toggle" href="profile.html" aria-current="page" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							  PROFILE
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="profile.html">My profile</a></li>
+							  	<li><a class="dropdown-item" href="#">My booked flights</a></li>
+								  <li><a class="dropdown-item" href="logout.html">Logout</a></li>
+							</ul>
+						</div>
+						<li class="nav-item">
+							<a class="nav-link" href="#">HELP</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+						
+        <main class="homepage">
+            <div class="container center_div">
+				<h1 class="title_h1">My booked Flight</h1>
+				<div class="list-of-flights">
+					<div id="a-flight-booked">
+						<div class="icon-and-title">
+							<i class="fas fa-location-arrow icon-font"></i>
+							<p class="aerodroms">DepartureAerodrom to ArrivalAerodrom</p>
+						</div>
+						<div class="other-info">
+							<div class="info-part">
+								<div class="icon-and-title">
+									<i class="fas fa-clock"></i>
+									<p class="other-info-texte">Tommorow/In x days</p>
+								</div>
+								<div class="icon-and-title">
+									<i class="fas fa-stopwatch"></i>
+									<p class="other-info-texte">1h30</p>
+								</div>
+							</div>
+							<div class="info-part">
+								<div class="icon-and-title">
+									<i class="fas fa-plane-arrival"></i>
+									<p class="other-info-texte">Arrival: date hour</p>
+								</div>
+								<div class="icon-and-title">
+									<i class="fas fa-plane-departure"></i>
+									<p class="other-info-texte">Departure: date hour</p>
+								</div>
+							</div>
+							<a class="btn btn-primary" href="#">More details</a>
+						</div>
+					</div>
+				</div>
+				
+            </div>
+        </main>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="jquery-ui.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="profile.js"></script>
+	</body>
+</html>
