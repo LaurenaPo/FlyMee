@@ -8,8 +8,8 @@ import javax.jdo.annotations.PersistenceCapable;
 @PersistenceCapable
 public class Flight {
 	public int id;
-	public String aerodromeDeparture;
-	public String aerodromeArrival;
+	public Aerodrome aerodromeDeparture;
+	public Aerodrome aerodromeArrival;
 	public LocalDateTime timeDeparture;
 	public LocalDateTime timeArrival;
 	public int placesNumber;
@@ -20,7 +20,7 @@ public class Flight {
 	public float price;
 	public String meetingPlace;
 
-	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, LocalDateTime timeDeparture,
+	public Flight(int id, Aerodrome aerodromeDeparture, Aerodrome aerodromeArrival, LocalDateTime timeDeparture,
 			LocalDateTime timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
 			Aircraft aircraft, float price, String meetingPlace) {
 		this.setId(id);

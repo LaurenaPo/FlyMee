@@ -3,6 +3,7 @@ package test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;
@@ -29,7 +30,7 @@ import com.flymee.models.User;
 
 
 
-public class FlightImplTest {
+public class DaoTest {
 	
 	@SuppressWarnings({ "unused", "deprecation" })
 	@Test
@@ -43,6 +44,7 @@ public class FlightImplTest {
 		Pilot p1 = new Pilot(1, "Jean", "Michel","jm@mail.fr", LocalDate.of(1950, 10, 10),"mdp", "photo","pilote chevronne",85, "20 ans", "licence tourisme", 450, "0605040302");
 		Pilot p2 = new Pilot(2, "Jean", "Francois","jf@mail.fr", LocalDate.of(1950, 2, 10),"mdp", "photo","pilote philanthrope",85, "2 ans", "licence 4", 21, "0605050302");
 		Pilot p3 = new Pilot(4, "Jean", "Mouloud","jmou@mail.fr", LocalDate.of(1950, 1, 10),"mdp", "photo","pirate de l'air",72, "13 ans", "licence tourisme", 202, "0605040303");
+		
 		User u1 = new User(1, "Jean", "Truc","jt@mail.fr", LocalDate.of(1990, 10, 10),"mdp");
 		User u2 = new User(2, "Machin", "Truc","mt@mail.fr", LocalDate.of(1991, 10, 10),"mdp");
 		User u3 = new User(3, "Fred", "Truc","ft@mail.fr", LocalDate.of(1980, 10, 10),"mdp");
@@ -53,7 +55,13 @@ public class FlightImplTest {
 		Aircraft aircraft1 =new Aircraft(1, p1, "Cessna 340", 4);
 		Aircraft aircraft2 =new Aircraft(2, p3, "Cessna 320", 2);
 		
+		Aerodrome aero1 = new Aerodrome(1, "France", "Marseille", "boulodrome");
+		Aerodrome aero2 = new Aerodrome(2, "Italie", "Roma", "Linguine");
+		Aerodrome aero3 = new Aerodrome(3, "France", "Lille", "rue2lasoif");
+		Aerodrome aero4 = new Aerodrome(4, "Espagne", "Levante", "Hacienda");
+		Aerodrome aero5 = new Aerodrome(5, "France", "Paris", "MCI 2-0 PSG");
 
+		Flight f1 = new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 6, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port");
 			
 		
 		aidi.addAircraft(aircraft1);
