@@ -1,11 +1,10 @@
 package com.flymee.models;
 
-import java.time.LocalDate;
-
 import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 public class User {
+
 	private int id;
 
 	public String getFirstName() {
@@ -30,14 +29,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getPassword() {
@@ -75,31 +66,28 @@ public class User {
 	protected String firstName;
 	protected String lastName;
 	protected String email;
-	protected LocalDate dateOfBirth;
 	protected String password;
 	protected String profilePicture;
 	protected String description;
 	protected int weight;
 
-	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password,
-			String profilePicture, String description, int weight) {
+	public User(int id, String firstName, String lastName, String email, String password, String profilePicture,
+			String description, int weight) {
 		this.setId(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.dateOfBirth = dateOfBirth;
 		this.password = password;
 		this.profilePicture = profilePicture;
 		this.description = description;
 		this.weight = weight;
 	}
 
-	public User(int id, String firstName, String lastName, String email, LocalDate dateOfBirth, String password) {
+	public User(int id, String firstName, String lastName, String email, String password) {
 		this.setId(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.dateOfBirth = dateOfBirth;
 		this.password = password;
 	}
 
