@@ -68,16 +68,23 @@ function fillTable(container) {
 function checkFlight(container) {
   var date = $("#datepicker").val();
   var myDate = date.split("/");
-  var newDate = [{}];
+  var newDate = [];
   container.forEach(function (container) {
-    if (myDate[0] == container.timeDeparture.dayOfMonth && myDate[1].aerodromeDeparture.timeDeparture.month && myDate[2] == container.timeDeparture.year) {
+    console.log(parseInt(myDate[1])+ " " + container.timeDeparture.monthValue);
+    if (parseInt(myDate[0]) == parseInt(container.timeDeparture.dayOfMonth) && parseInt(myDate[1]) == parseInt(container.timeDeparture.monthValue) && parseInt(myDate[2]) == parseInt(container.timeDeparture.year)) {
       newDate.push(container)
     }
   });
-  if (newDate == [{}]) {
-    alert("There is no flight with at this date");
+  console.log(newDate.length);
+  if (newDate.length == 0) {
+    var html="</p>There is no flight at this date sorry <p>";
+    document.getElementById('resultat').innerHTML = html;
   }
-  fillTable(newDate);
+  else{
+    console.log(newDate);
+    fillTable(newDate);
+  }
+  
 }
 
 $(function () {
@@ -92,7 +99,7 @@ $(function () {
         getServerData("ws/aerodromes/"+ id +"/departure", fillTable);
     }
     else{
-        getServerData("ws/flights/", checkFlight);
+      getServerData("ws/aerodromes/"+ id +"/departure", checkFlight);
     }
   });
 });
