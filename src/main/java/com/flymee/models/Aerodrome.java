@@ -5,7 +5,6 @@ import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
-import javax.persistence.Id;
 
 @PersistenceCapable
 public class Aerodrome {
