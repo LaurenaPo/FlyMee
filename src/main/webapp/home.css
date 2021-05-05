@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    --blue-theme: #4A66AC;
+}
+
 /* Main */
 main.homepage {
     height: calc(100vh - 85px);

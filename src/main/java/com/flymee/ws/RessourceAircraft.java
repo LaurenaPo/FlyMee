@@ -44,8 +44,8 @@ public class RessourceAircraft {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}")
-	public Aircraft updateAircraft(@PathParam("id") Aircraft aircraftID) {
+	@Path("/")
+	public Aircraft updateAircraft(Aircraft aircraftID) {
 		return this.aircrafts.updateAircraft(aircraftID);
 	}
 

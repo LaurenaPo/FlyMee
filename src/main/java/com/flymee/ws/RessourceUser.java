@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.UserDao;
+import com.flymee.dao.UserStubDao;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
 import com.flymee.models.User;
@@ -23,7 +24,10 @@ public class RessourceUser {
 
 	public RessourceUser(UserDao users) {
 		this.users = users;
+	}
 
+	public RessourceUser() {
+		this.users = new UserStubDao();
 	}
 
 	@GET
@@ -48,8 +52,8 @@ public class RessourceUser {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}")
-	public User updateUser(@PathParam("id") User user) {
+	@Path("/")
+	public User updateUser(User user) {
 		return this.users.updateUser(user);
 	}
 

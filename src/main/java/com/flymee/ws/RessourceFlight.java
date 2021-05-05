@@ -47,8 +47,8 @@ public class RessourceFlight {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 
-	@Path("/flight/")
-	public Flight updateFlight(@PathParam("flight") Flight flight) {
+	@Path("/")
+	public Flight updateFlight(Flight flight) {
 		return this.flights.updateFlight(flight);
 	}
 
