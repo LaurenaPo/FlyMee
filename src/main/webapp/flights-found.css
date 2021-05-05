@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    --blue-theme: #4A66AC;
+    word-break: break-all;
+}
+
+main.homepage {
+    height: calc(100vh - 85px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 85px;
+}
+
+.center_div {
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 7px #000000;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.list-of-flights {
+    overflow: auto;
+}
+
+.title_h1 {
+    font-size: 2.8em;
+    font-family: 'Bodoni MT', Arial, serif;
+    font-weight: normal;
+    color: var(--blue-theme);
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#a-flight-booked {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding-left: 5px;
+    border-radius: 30px;
+    margin-left: 15px;
+    margin-right: 15px; 
+}
+
+.other-info {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-part-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-and-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+.aerodroms {
+    font-size: 1.4em;
+    margin-left: 7px;
+}
+
+.other-info-texte {
+    font-size: 1.2em;
+    margin-left: 7px;
+    margin-bottom: 5px;
+}
+
+.icon-font {
+    font-size: 1.5em;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--blue-theme);
+    border-color: var(--blue-theme);
+    font-size: 1.3rem;
+    margin-right: 20px;
+}
+
+.price {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
