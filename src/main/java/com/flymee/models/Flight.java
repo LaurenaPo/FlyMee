@@ -3,18 +3,13 @@ package com.flymee.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Flight {
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
 	public int id;
-	public Aerodrome aerodromeDeparture;
-	public Aerodrome aerodromeArrival;
+	public String aerodromeDeparture;
+	public String aerodromeArrival;
 	public LocalDateTime timeDeparture;
 	public LocalDateTime timeArrival;
 	public int placesNumber;
@@ -22,12 +17,12 @@ public class Flight {
 	public Pilot pilot;
 	public List<User> passengerList;
 	public Aircraft aircraft;
-	public double price;
+	public float price;
 	public String meetingPlace;
 
-	public Flight(int id, Aerodrome aerodromeDeparture, Aerodrome aerodromeArrival, LocalDateTime timeDeparture,
+	public Flight(int id, String aerodromeDeparture, String aerodromeArrival, LocalDateTime timeDeparture,
 			LocalDateTime timeArrival, int placesNumber, int placesTaken, Pilot pilot, List<User> passenger,
-			Aircraft aircraft, double price, String meetingPlace) {
+			Aircraft aircraft, float price, String meetingPlace) {
 		this.setId(id);
 		this.aerodromeDeparture = aerodromeDeparture;
 		this.aerodromeArrival = aerodromeArrival;
@@ -50,19 +45,19 @@ public class Flight {
 		this.id = id;
 	}
 
-	public Aerodrome getAerodromeDeparture() {
+	public String getAerodromeDeparture() {
 		return aerodromeDeparture;
 	}
 
-	public void setAerodromeDeparture(Aerodrome aerodromeDeparture) {
+	public void setAerodromeDeparture(String aerodromeDeparture) {
 		this.aerodromeDeparture = aerodromeDeparture;
 	}
 
-	public Aerodrome getAerodromeArrival() {
+	public String getAerodromeArrival() {
 		return aerodromeArrival;
 	}
 
-	public void setAerodromeArrival(Aerodrome aerodromeArrival) {
+	public void setAerodromeArrival(String aerodromeArrival) {
 		this.aerodromeArrival = aerodromeArrival;
 	}
 
@@ -122,11 +117,11 @@ public class Flight {
 		this.aircraft = aircraft;
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
