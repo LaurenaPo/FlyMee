@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.FlightDao;
+import com.flymee.dao.FlightStubDao;
 import com.flymee.models.Flight;
 import com.flymee.models.User;
 
@@ -19,8 +20,12 @@ import com.flymee.models.User;
 public class RessourceFlight {
 	private FlightDao flights;
 
-	public RessourceFlight(FlightDao flights) {
-		this.flights = flights;
+	/*
+	 * public RessourceFlight() { this.flights = DaoFactory.getFlightDao(); }
+	 */
+
+	public RessourceFlight() {
+		this.flights = new FlightStubDao();
 	}
 
 	@GET
@@ -38,16 +43,12 @@ public class RessourceFlight {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-
 	public void addFlight(Flight flight) {
 		this.flights.addFlight(flight);
-
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-
-	@Path("/")
 	public Flight updateFlight(Flight flight) {
 		return this.flights.updateFlight(flight);
 	}

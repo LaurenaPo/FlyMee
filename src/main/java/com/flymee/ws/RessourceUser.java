@@ -15,16 +15,15 @@ import javax.ws.rs.core.MediaType;
 import com.flymee.dao.UserDao;
 import com.flymee.dao.UserStubDao;
 import com.flymee.models.Flight;
-import com.flymee.models.Pilot;
 import com.flymee.models.User;
 
 @Path("/users")
 public class RessourceUser {
 	private UserDao users;
 
-	public RessourceUser(UserDao users) {
-		this.users = users;
-	}
+	/*
+	 * public RessourceUser() { this.users = DaoFactory.getUserDao(); }
+	 */
 
 	public RessourceUser() {
 		this.users = new UserStubDao();
@@ -43,16 +42,16 @@ public class RessourceUser {
 		return this.users.getUser(userID);
 	}
 
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("signup/{email}/{password}/{pilot}")
-	public void createUser(Pilot pilot) {
-		this.users.addUser(pilot);
+	@Path("/signup")
+	public void createUser(User user) {
+		this.users.addUser(user);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/")
+	@Path("/signup")
 	public User updateUser(User user) {
 		return this.users.updateUser(user);
 	}

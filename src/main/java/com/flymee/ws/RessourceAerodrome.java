@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.AerodromeDao;
+import com.flymee.dao.AerodromeStubDao;
 import com.flymee.models.Aerodrome;
 import com.flymee.models.Flight;
 
@@ -19,8 +20,13 @@ import com.flymee.models.Flight;
 public class RessourceAerodrome {
 	private AerodromeDao aerodromes;
 
-	public RessourceAerodrome(AerodromeDao aerodromes) {
-		this.aerodromes = aerodromes;
+	/*
+	 * public RessourceAerodrome() { this.aerodromes = DaoFactory.getAerodromeDao();
+	 * }
+	 */
+
+	public RessourceAerodrome() {
+		this.aerodromes = new AerodromeStubDao();
 	}
 
 	@GET
@@ -44,8 +50,6 @@ public class RessourceAerodrome {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/")
-
 	public Aerodrome updateAerodrome(Aerodrome aero) {
 		return this.aerodromes.updateAerodrome(aero);
 	}
