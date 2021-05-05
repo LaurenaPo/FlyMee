@@ -2,7 +2,6 @@ package test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import javax.jdo.JDOHelper;
@@ -11,28 +10,21 @@ import javax.jdo.PersistenceManagerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.flymee.dao.DaoFactory;
+
 import com.flymee.dao.AerodromeDao;
-import com.flymee.dao.AerodromeDaoImpl;
 import com.flymee.dao.AircraftDao;
-import com.flymee.dao.AircraftDaoImpl;
+import com.flymee.dao.DaoFactory;
 import com.flymee.dao.FlightDao;
-import com.flymee.dao.FlightDaoImpl;
 import com.flymee.dao.PilotDao;
-import com.flymee.dao.PilotDaoImpl;
 import com.flymee.dao.UserDao;
-import com.flymee.dao.UserDaoImpl;import com.flymee.dao.DaoFactory;
 import com.flymee.models.Aerodrome;
 import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
 import com.flymee.models.User;
 
-
-
 public class DaoTest {
-	
-	@SuppressWarnings({ "unused" })
+
 	@Test
 	public void test() {
 		FlightDao fdi = DaoFactory.getFlightDao();
@@ -117,6 +109,6 @@ public class DaoTest {
 
 		fdi.cancelPassenger(1, 3);
 		Assert.assertEquals(2, f1.getPassengerList().size());
-
 	}
+
 }
