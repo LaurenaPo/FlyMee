@@ -63,6 +63,19 @@ public class DaoTest {
 
 		Flight f1 = new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port");
 		Flight f2 = new Flight(1, aero2, aero1, LocalDateTime.of(2021, 6, 6, 10, 10),LocalDateTime.of(2021, 6, 22, 15, 10), 4, 1, p1, List.of(u1, u2, u3), aircraft1, 45.0, "piazza d'espagna");
+		Flight f3 = new Flight(1, aero3, aero5, LocalDateTime.of(2021, 5, 6, 8, 0),LocalDateTime.of(2021, 5, 6, 9, 10), 2, 2, p3, List.of(u1, u2), aircraft2, 45.0, "gare de Lille");
+		
+		fdi.addFlight(f1);
+		fdi.addFlight(f2);
+		fdi.addFlight(f3);
+		Assert.assertEquals(3, fdi.getFlights().size());
+		fdi.deleteFlight(3);
+		Assert.assertEquals(2, fdi.getFlights().size());
+		
+		fdi.updateFlight(new Flight(1, aero1, aero1, LocalDateTime.of(2021, 6, 22, 10, 10),LocalDateTime.of(2021, 6, 22, 13, 10), 4, 2, p1, List.of(u1, u2), aircraft1, 45.0, "sur le vieux port"));
+		
+		System.out.print(f1.getTimeDeparture());
+		
 		
 			
 		
@@ -95,15 +108,6 @@ public class DaoTest {
 		udi.deleteUser(2);
 		Assert.assertEquals(5,udi.getUsers().size());	
 		
-		Flight flight1 = new Flight(new Date(2021,03,16),LocalDateTime.of(2021,03,16,18,20,0), "Aerodrome 1",new Date(2021,03,16),LocalDateTime.of(2021,03,16,20,50,0),"Aerodrom2",150,37,pilot1.getPilotId(),aircraft1.getTailNumber());	
-		Flight flight2 = new Flight(new Date(2021,03,16),LocalDateTime.of(2021,03,16,18,20,0), "Aerodrome 1",new Date(2021,03,16),LocalDateTime.of(2021,03,16,20,50,0),"Aerodrom3",30,48,pilot2.getPilotId(),aircraft2.getTailNumber());		
-		Flight flight3 = new Flight(new Date(2021,04,16),LocalDateTime.of(2021,04,16,18,20,0), "Aerodrome 1",new Date(2021,04,16),LocalDateTime.of(2021,04,16,20,50,0),"Marseille",150,59,pilot3.getPilotId(),aircraft1.getTailNumber());
-		Flight flight4 = new Flight(new Date(2021,04,16),LocalDateTime.of(2021,04,16,15,20,0), "Aerodrome 1",new Date(2021,04,16),LocalDateTime.of(2021,04,16,20,50,0),"Casa",30,59,pilot1.getPilotId(),aircraft1.getTailNumber());
-
-		flightDao.addFlight(flight1);
-		flightDao.addFlight(flight2);
-		flightDao.addFlight(flight3);
-		flightDao.addFlight(flight4);
 		
 		//test add+remove passenger in a flight
 		flightDao.addPassenger((long)0, (long) 0);
