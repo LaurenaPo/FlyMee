@@ -12,19 +12,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.AircraftDao;
-import com.flymee.dao.AircraftStubDao;
 import com.flymee.models.Aircraft;
 
 @Path("/aircrafts")
 public class RessourceAircraft {
 	private AircraftDao aircrafts;
 
-	/*
-	 * public RessourceAircraft() { this.aircrafts = DaoFactory.getAircraftDao(); }
-	 */
+	public RessourceAircraft(AircraftDao aircrafts) {
+		this.aircrafts = aircrafts;
 
-	public RessourceAircraft() {
-		this.aircrafts = new AircraftStubDao();
 	}
 
 	@GET
@@ -48,6 +44,7 @@ public class RessourceAircraft {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/")
 	public Aircraft updateAircraft(Aircraft aircraftID) {
 		return this.aircrafts.updateAircraft(aircraftID);
 	}

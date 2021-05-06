@@ -20,10 +20,9 @@ import com.flymee.models.Flight;
 public class RessourceAerodrome {
 	private AerodromeDao aerodromes;
 
-	/*
-	 * public RessourceAerodrome() { this.aerodromes = DaoFactory.getAerodromeDao();
-	 * }
-	 */
+	public RessourceAerodrome(AerodromeDao aerodromes) {
+		this.aerodromes = aerodromes;
+	}
 
 	public RessourceAerodrome() {
 		this.aerodromes = new AerodromeStubDao();
@@ -50,6 +49,8 @@ public class RessourceAerodrome {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/")
+
 	public Aerodrome updateAerodrome(Aerodrome aero) {
 		return this.aerodromes.updateAerodrome(aero);
 	}
@@ -63,8 +64,8 @@ public class RessourceAerodrome {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/{id}/departure")
-	public List<Flight> getFlightsDeparture(@PathParam("id") String name) {
+	@Path("/{name}/departure")
+	public List<Flight> getFlightsDeparture(@PathParam("name") String name) {
 		return this.aerodromes.getFlightsDeparture(name);
 	}
 

@@ -2,7 +2,6 @@ package com.flymee.ws;
 
 import java.util.List;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,7 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.flymee.dao.PilotDao;
-import com.flymee.dao.PilotStubDao;
 import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
 import com.flymee.models.Pilot;
@@ -23,12 +21,8 @@ import com.flymee.models.User;
 public class RessourcePilot {
 	private PilotDao pilots;
 
-	/*
-	 * public RessourcePilot() { this.pilots = DaoFactory.getPilotDao(); }
-	 */
-
-	public RessourcePilot() {
-		this.pilots = new PilotStubDao();
+	public RessourcePilot(PilotDao pilots) {
+		this.pilots = pilots;
 	}
 
 	@GET
@@ -45,14 +39,14 @@ public class RessourcePilot {
 	}
 
 	@PUT
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/signup")
+	@Produces(MediaType.APPLICATION_JSON)
 	public void createPilot(Pilot pilot) {
 		this.pilots.addPilot(pilot);
 	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/")
 	public User updatePilot(Pilot pilot) {
 		return this.pilots.updatePilot(pilot);
 	}
