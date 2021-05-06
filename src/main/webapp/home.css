@@ -67,7 +67,8 @@ main.homepage {
 
 .checkbox{
     font-size: 30px;
-    color: white;
+    color:black;
+    font-family: 'Bodoni MT', Arial, serif;
 }
 
 h2{

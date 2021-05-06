@@ -35,8 +35,8 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<li><a class="dropdown-item" href="profile.html">My profile</a></li>
-								<li><a class="dropdown-item" href="home.html">Find a flight</a></li>
-							  	<li><a class="dropdown-item" href="#">My booked flights</a></li>
+								<li><a class="dropdown-item" href="home-user.html">Find a flight</a></li>
+							  	<li><a class="dropdown-item" href="my-booked-flights.html">My booked flights</a></li>
 								<li><a class="dropdown-item" href="logout.html">Logout</a></li>
 							</ul>
 						</div>
@@ -51,15 +51,17 @@
         <main class="homepage">
             <div class="container" id="title_and_input">
                 <h1>Find a flight proposed by a pilot:</h1>
-                <div class="input_style" id="search_bar">
-					<i class="fas fa-location-arrow icon_font1"></i>
-                    <input class="form-control" id="tags" placeholder="Departure..."/>
-                </div>
-                <div class="input_style" id=date_bar>
-					<i class="fas fa-calendar-alt icon_font2"></i>
-					<input class="form-control" type="text" placeholder="Date: mm/jj/aaaa" id="datepicker">
-                </div>
-				<button type="button" class="btn btn-primary button-submit" id="buttonSearch">Search</button>	
+				<form action="flights-found.html" class="d-flex flex-column align-items-center">
+					<label class="input_style" id="search_bar">
+						<i class="fas fa-location-arrow icon_font1"></i>
+						<input name="departureAerodrome" class="form-control" id="tags" placeholder="Departure..." required/>
+					</label>
+					<label class="input_style" id=date_bar>
+						<i class="fas fa-calendar-alt icon_font2"></i>
+						<input name="departureDate" class="form-control" type="text" placeholder="Date: mm/jj/aaaa" id="datepicker" required>
+					</label>
+					<button type="submit" class="btn btn-primary button-submit">Search</button>
+				</form>
             </div>
         </main>
 

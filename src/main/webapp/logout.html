@@ -29,11 +29,19 @@
 				<div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link" href="homeLogin.html">HOME</a>
+							<a class="nav-link" href="home-user.html">HOME</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="">PROFIL</a>
-						</li>
+						<div class="dropdown">
+							<a class="nav-link dropdown-toggle" href="profile.html" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							  PROFILE
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="profile.html">My profile</a></li>
+								<li><a class="dropdown-item" href="home.html">Find a flight</a></li>
+							  	<li><a class="dropdown-item" href="my-booked-flights.html">My booked flights</a></li>
+								<li><a class="dropdown-item" href="logout.html">Logout</a></li>
+							</ul>
+						</div>
 						<li class="nav-item">
 							<a class="nav-link" href="helpLogin.html">HELP</a>
 						</li>
