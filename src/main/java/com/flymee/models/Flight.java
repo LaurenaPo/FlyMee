@@ -5,16 +5,12 @@ import java.util.List;
 
 import javax.jdo.annotations.PersistenceCapable;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @PersistenceCapable
 public class Flight {
 	public int id;
 	public String aerodromeDeparture;
 	public String aerodromeArrival;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	public LocalDateTime timeDeparture;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	public LocalDateTime timeArrival;
 	public int placesNumber;
 	public int placesTaken;

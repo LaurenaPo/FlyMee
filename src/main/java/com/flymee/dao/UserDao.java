@@ -56,7 +56,7 @@ public interface UserDao {
 	 * 
 	 * @return true if the user is well logged, false otherwise
 	 */
-	boolean login();
+	User login(String email, String password);
 
 	/**
 	 * 

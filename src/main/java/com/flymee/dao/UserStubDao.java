@@ -98,8 +98,13 @@ public class UserStubDao implements UserDao {
 		return false;
 	}
 
-	public boolean login() {
-		return true;
+	public User login(String email, String password) {
+		for (User user : userList) {
+			if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 	public boolean logout() {

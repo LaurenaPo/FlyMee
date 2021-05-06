@@ -52,7 +52,6 @@ public class RessourceUser {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/")
 	public User updateUser(User user) {
 		return this.users.updateUser(user);
 	}
@@ -80,9 +79,10 @@ public class RessourceUser {
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/login")
-	public boolean login() {
-		return this.users.login();
+	public User login(String email, String password) {
+		return this.users.login(email, password);
 	}
 
 	@GET
