@@ -4,12 +4,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
     <persistence-unit name="FlyMee_DO">
-    	<class>fr.abyssia.flymee.models.Aerodrome</class>
-    	<class>fr.abyssia.flymee.models.Aircraft</class>
-    	<class>fr.abyssia.flymee.models.Flight</class>
-    	<class>fr.abyssia.flymee.models.Pilot</class>
-    	<class>fr.abyssia.flymee.models.User</class>
-        <exclude-unlisted-classes/>
+    	
+    
         
         <properties>
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:hsqldb:mem:example"/>
