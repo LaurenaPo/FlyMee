@@ -8,11 +8,11 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
+import com.flymee.models.Aerodrome;
 import com.flymee.models.Flight;
 import com.flymee.models.User;
 
 public class UserDaoImpl implements UserDao {
-
 	PersistenceManagerFactory pmf;
 
 	List<User> userList;
@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao {
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
-			Query q = pm.newQuery(User.class);
+			Query q = pm.newQuery(Aerodrome.class);
 			list = (List<User>) q.execute();
 			detached = (List<User>) pm.detachCopyAll(list);
 			tx.commit();

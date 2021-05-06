@@ -167,4 +167,10 @@ public class FlightDaoImpl implements FlightDao {
 		return passengers;
 
 	}
+
+	@Override
+	public List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

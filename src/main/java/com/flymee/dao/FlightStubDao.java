@@ -87,6 +87,30 @@ public class FlightStubDao implements FlightDao {
 		return new ArrayList<User>();
 	}
 
+	public List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture) {
+		// Si la personne ne rentre que un lieu dans la recherche
+		List<Flight> listOfFlight = new ArrayList<Flight>();
+		if (timeDeparture == "1900-00-00") {
+			for (Flight flight : flightList) {
+				if (flight.aerodromeDeparture.equals(aerodromeDepature)) {
+					listOfFlight.add(flight);
+				}
+			}
+			return listOfFlight;
+		}
+
+		LocalDate dateTime = LocalDate.parse(timeDeparture);
+
+		// Si la personne rentre un lieu et une date complète
+		for (Flight flight : flightList) {
+			LocalDate dateFlight = flight.timeDeparture.toLocalDate();
+			if (flight.aerodromeDeparture.equals(aerodromeDepature) && dateTime.equals(dateFlight)) {
+				listOfFlight.add(flight);
+			}
+		}
+		return listOfFlight;
+	}
+
 	@Override
 	public void addFlight(Flight flight) {
 		// TODO Auto-generated method stub

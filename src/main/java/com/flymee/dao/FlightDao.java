@@ -18,6 +18,13 @@ public interface FlightDao {
 	Flight getFlight(int flightID);
 
 	/**
+	 * @param String aerodromeDeparture
+	 * @param String timeDeparture
+	 * @return a specific list of flight
+	 */
+	List<Flight> getSomeFlights(String aerodromeDepature, String timeDeparture);
+
+	/**
 	 * 
 	 * @return a new flight
 	 */
