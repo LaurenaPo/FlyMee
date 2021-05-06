@@ -10,7 +10,6 @@ import javax.jdo.Transaction;
 
 import com.flymee.models.Aircraft;
 import com.flymee.models.Flight;
-import com.flymee.models.Pilot;
 
 public class AircraftDaoImpl implements AircraftDao {
 	PersistenceManagerFactory pmf;
@@ -25,7 +24,7 @@ public class AircraftDaoImpl implements AircraftDao {
 		List<Aircraft> list = null;
 		List<Aircraft> detached = new ArrayList<Aircraft>();
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); //ici : retour de tous les aerodromes ? ou par critere de selection ?
+		Transaction tx = pm.currentTransaction(); // ici : retour de tous les aerodromes ? ou par critere de selection ?
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Flight.class);
@@ -40,14 +39,14 @@ public class AircraftDaoImpl implements AircraftDao {
 		}
 		return detached;
 	}
-	
+
 	@SuppressWarnings({ "unchecked" })
 	public Aircraft getAircraft(int aircraftID) {
 		List<Aircraft> ai = null;
 		List<Aircraft> detached = new ArrayList<Aircraft>();
 		Aircraft resAi;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction(); 
+		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
 			Query q = pm.newQuery(Flight.class);
