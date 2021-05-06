@@ -17,7 +17,9 @@ $('#loginForm').submit(event => {
   }).done(user => {
     sessionStorage.setItem("UserID", user.id)
     sessionStorage.setItem("user", JSON.stringify(user))
+
+    window.location.href="home-user.html";
   });
-  
+
   event.preventDefault();
 })
