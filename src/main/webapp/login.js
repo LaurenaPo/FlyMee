@@ -12,10 +12,11 @@ $('#loginForm').submit(event => {
     method: "POST",
 		contentType: "application/json; charset=utf-8",
         dataType: "json",
-		data: data,
+		data: JSON.stringify(data),
     url: "/ws/users/login"
   }).done(user => {
-    console.log(user);
+    sessionStorage.setItem("UserID", user.id)
+    sessionStorage.setItem("user", JSON.stringify(user))
   });
   
   event.preventDefault();

@@ -81,8 +81,8 @@ public class RessourceUser {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/login")
-	public User login(String email, String password) {
-		return this.users.login(email, password);
+	public User login(UserLogin userLogin) {
+		return this.users.login(userLogin.getEmail(), userLogin.getPassword());
 	}
 
 	@GET
@@ -92,4 +92,31 @@ public class RessourceUser {
 		return this.users.logout();
 	}
 
+}
+
+class UserLogin{
+
+    public UserLogin(){
+
+    }
+
+    private String email;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
